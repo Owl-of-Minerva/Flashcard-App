@@ -4,11 +4,10 @@ complete_input.click(function(event){
     console.log("clicked");
     var input = $('#translate_input');
     console.log(input);
-    //$('#user_input').text(input.val());
-    $('#user_input').html(input.val().replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, "$1<br/>$2"));
+    $('#user_input').text(input.val());
+    // $('#user_input').html(input.val().replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, "$1<br/>$2"));
     //console.log(input.val().replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, "$1<br/>$2"));
-    var div = $("#user_input");
-    div.html(div.text().replace(/(\S+)/g, "<span>$1</span>"));
+    $("#user_input").html( $("#user_input").text().replace(/(\S+)/g, "<span>$1</span>"));
 
     $("#user_input span").click(function(event){
         console.log('clicked');
