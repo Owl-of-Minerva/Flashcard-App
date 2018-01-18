@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Trans App</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react-dom.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" />
+
+</head>
+<body>
+
+<div id="dialog-form" hidden title="Create New Flashcard">
+    <form>
+        <fieldset>
+            <label>Original Word</label>
+            <input type="text" id="original_word"/>
+            <label>Translation</label>
+            <input type="text" id="translation_word">
+            <label>Example Use</label>
+            <input type="text" id="example_use">
+
+            <div>
+            <!-- Allow form submission with keyboard without duplicating the dialog button -->
+            <input type="submit">
+            </div>
+        </fieldset>
+    </form>
+</div>
+<div id="app">
+
+</div>
+
+<div>
+    Translate from
+    <select id="source">
+        <option value="hi" selected="selected">Hindi</option>
+        <option value="zh-cn">Chinese</option>
+        <option value="en">English</option>
+    </select>
+    to
+    <select id="target">
+        <option value="hi">Hindi</option>
+        <option value="zh-cn">Chinese</option>
+        <option value="en" selected="selected">English</option>
+    </select>
+</div>
+<br/>
+
+<!--
+<script type="text/babel" src="app.jsx"></script>
+-->
+<textarea type="text" id="translate_input" placeholder="">उनकी बांहों के डोले इतने मज़बूत होते थे कि उनके साथी उन्हें रैम्बो कह कर पुकारते थे. रैम्बो गोपालकृष्णन की ख़ास बात ये थी कि वो वीरप्पन की ही वन्नियार जाति से आते थे.</textarea>
+<button id="complete_input">Done</button>
+<p id="user_input"></p>
+<ul id="translation_list">
+
+</ul>
+<button id="remove_translation_list">Remove All</button>
+<button id="generate_list">Generate Vocabulary List</button>
+<p id="generated_list">
+
+</p>
+</body>
+
+<script src="add_flashcard.js"></script>
+<script src="select_word.js"></script>
+</body>
+</html>
