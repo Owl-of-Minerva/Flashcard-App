@@ -26,8 +26,8 @@
       <file leaf-file-name="select_word.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/select_word.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="9" column="43" lean-forward="false" selection-start-line="9" selection-start-column="43" selection-end-line="9" selection-end-column="43" />
+            <state relative-caret-position="-41">
+              <caret line="18" column="44" lean-forward="true" selection-start-line="18" selection-start-column="44" selection-end-line="18" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -80,8 +80,8 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-26" />
-    <option name="y" value="215" />
+    <option name="x" value="-30" />
+    <option name="y" value="132" />
     <option name="width" value="1270" />
     <option name="height" value="585" />
   </component>
@@ -240,15 +240,15 @@
       <option name="presentableId" value="Default" />
       <updated>1516163248336</updated>
       <workItem from="1516163249669" duration="424000" />
-      <workItem from="1516228046490" duration="16743000" />
+      <workItem from="1516228046490" duration="16909000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17167000" />
+    <option name="totallyTimeSpent" value="17333000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-26" y="215" width="1270" height="585" extended-state="0" />
+    <frame x="-30" y="132" width="1270" height="585" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -397,8 +397,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/select_word.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="9" column="43" lean-forward="false" selection-start-line="9" selection-start-column="43" selection-end-line="9" selection-end-column="43" />
+        <state relative-caret-position="-41">
+          <caret line="18" column="44" lean-forward="true" selection-start-line="18" selection-start-column="44" selection-end-line="18" selection-end-column="44" />
           <folding />
         </state>
       </provider>

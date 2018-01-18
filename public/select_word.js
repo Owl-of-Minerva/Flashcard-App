@@ -7,7 +7,7 @@ complete_input.click(function(event){
     $('#user_input').text(input.val());
     // $('#user_input').html(input.val().replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, "$1<br/>$2"));
     //console.log(input.val().replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, "$1<br/>$2"));
-    $("#user_input").html( $("#user_input").text().replace(/(\S+)/g, "<span>$1</span>"));
+    $("#user_input").html( $("#user_input").text().replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, "$1<br/>$2").replace(/(\S+)/g, "<span>$1</span>"));
 
     $("#user_input span").click(function(event){
         console.log('clicked');
