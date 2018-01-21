@@ -13,6 +13,8 @@ complete_input.click(function(event){
         console.log('clicked');
         console.log($(this));
 
+        $(this).css("background-color","#00ff00");
+
 
        // var sourceLang = "hi";
        // var targetLang = "en";
@@ -27,9 +29,14 @@ complete_input.click(function(event){
         //var result = JSON.parse(UrlFetchApp.fetch(url).getContentText());
         ;
 
+        var selectedWord = $(this);
+
         $.getJSON(url).done(function(data) {
             var result = data[0][0][0];
-            console.log(result);
+            console.log("translation result: "+result);
+            translatedText = result;
+            console.log("translated text: "+translatedText);
+            selectedWord.attr('title', translatedText);
             $('#translation_list').append('<div class="translation_div"><li>'+ sourceText+": "+result+ '</li class="translation_result"> ' +
                 '<button class="add_card"> Add to Flashcard</button> <button class="remove_card">Remove</button></div>');
             $( function() {
@@ -56,6 +63,8 @@ complete_input.click(function(event){
                 //addUser();
                 //});
 
+
+
                 $( "button.add_card" ).click(function(event) {
                     console.log('add card clicked');
 
@@ -71,11 +80,10 @@ complete_input.click(function(event){
                 })
             } );
 
-
-
         }).fail(function() {
             alert("Error")
         });
+
 
     });
 
@@ -123,7 +131,7 @@ $("#generate_list").click(function(event){
 })
 
 $("#remove_translation_list").click(function(event){
-    $("#translation_list").each(function (index) {
+    $("#translation_list .translation_div").each(function (index) {
         $(this).remove();
     })
 })
