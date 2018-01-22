@@ -135,3 +135,12 @@ $("#remove_translation_list").click(function(event){
         $(this).remove();
     })
 })
+
+$("#download").click(function(event){
+    console.log($('#user_input').html());
+    var text = $('#user_input').html();
+    var fileName = $('#download_name').val();
+
+    $(this).attr("href", 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+    $(this).attr("download", fileName+".html");
+})
