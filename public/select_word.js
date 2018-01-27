@@ -1,5 +1,4 @@
-
-var complete_input = $('#complete_input');
+;var complete_input = $('#complete_input');
 complete_input.click(function(event){
     console.log("clicked");
     var input = $('#translate_input');
@@ -143,4 +142,10 @@ $("#download").click(function(event){
 
     $(this).attr("href", 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
     $(this).attr("download", fileName+".html");
+});
+
+$("#route").click(function(event){
+    console.log("route clicked");
+    $(location).attr('href', '/flash_cards');
 })
+

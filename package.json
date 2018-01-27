@@ -14,7 +14,8 @@
     "google-translate-api": "^2.3.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "sphp": "^0.5.2"
+    "sphp": "^0.5.2",
+    "sqlite3": "^3.1.13"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
