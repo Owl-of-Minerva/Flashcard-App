@@ -12,6 +12,7 @@
     "create-html": "^4.1.0",
     "express": "^4.16.2",
     "google-translate-api": "^2.3.0",
+    "pug": "^2.0.0-rc.4",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "sphp": "^0.5.2",

@@ -14,14 +14,14 @@
 <body>
 
 <div id="dialog-form" hidden title="Create New Flashcard">
-    <form>
+    <form id="flashcard_form" method="post" action="/database_test">
         <fieldset>
             <label>Original Word</label>
-            <input type="text" id="original_word"/>
+            <input type="text" id="original_word" name="original_word"/>
             <label>Translation</label>
-            <input type="text" id="translation_word">
+            <input type="text" id="translation_word" name="translation_word">
             <label>Example Use</label>
-            <input type="text" id="example_use">
+            <input type="text" id="example_use" name="example_use" value="N/A">
 
             <div>
             <!-- Allow form submission with keyboard without duplicating the dialog button -->
@@ -53,7 +53,8 @@
 <!--
 <script type="text/babel" src="app.jsx"></script>
 -->
-<textarea type="text" id="translate_input" placeholder="">उनकी बांहों के डोले इतने मज़बूत होते थे कि उनके साथी उन्हें रैम्बो कह कर पुकारते थे. रैम्बो गोपालकृष्णन की ख़ास बात ये थी कि वो वीरप्पन की ही वन्नियार जाति से आते थे.</textarea>
+<textarea type="text" id="translate_input" placeholder="">राजा हाथी पर तनकर बैठा था। शेर ने सोचा, मैं भी बैठूँगा। उसने जंगल के हाथी को बुलाया।
+</textarea>
 <button id="complete_input">Done</button>
 <p id="user_input"></p>
 <ul id="translation_list" download>

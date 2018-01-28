@@ -148,4 +148,17 @@ $("#route").click(function(event){
     console.log("route clicked");
     $(location).attr('href', '/flash_cards');
 })
-
+/*
+$("#flashcard_form").on('submit', function(event){
+    console.log($(this).serialize())
+    $.ajax({
+        type: "POST",
+        url: "/database_test",
+        data: $(this).serialize(),
+        success: function(response){
+            alert(response);
+            window.location='database_test';
+        }
+    })
+})
+*/
