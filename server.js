@@ -42,7 +42,7 @@ app.get('/flash_cards', function (req, res) {
         else{
             rows.forEach(function(row){
                 output += row.word + "<br/> " + row.translation + "<br/> " + row.example + "<br/> <br/>";
-                cards.push(row.word);
+                cards.push(row);
 
             })
         }
@@ -51,36 +51,16 @@ app.get('/flash_cards', function (req, res) {
         res.render('flashcards', { title: 'Flash Cards', message: 'List of Flashcards', values: cards});
     })
 
-
-
-})
-
-app.get('/database_test', function (req, res){
-    console.log("request from flashcard to get: " +req.body);
-
-
-    var db = new sqlite3.Database('./flashcard_app.db');
-
-    db.serialize(function () {
-        db.each('SELECT * FROM flashcards', function (err, row) {
-            //console.log(row.word);
-            //console.log(row.translation);
-            //console.log(row.example);
-        })
-    })
-
-    db.close();
-    res.send('database get test');
 })
 
 
-app.post('/database_test', function (req, res){
+
+
+app.post('/flash_cards', function (req, res){
     var word = req.body.original_word;
     var trans = req.body.translation_word;
     var example = req.body.example_use;
     var count = 0;
-
-    var sqlite3 = require('sqlite3').verbose();
     var db = new sqlite3.Database('./flashcard_app.db');
 
     db.serialize(function () {
@@ -96,9 +76,24 @@ app.post('/database_test', function (req, res){
     }
     db.close();
     console.log("request from flashcard to post: " +req.body.original_word);
-    res.send('database post test: '+req.body.original_word);
+    //res.send('database post test: '+req.body.original_word);
+    res.redirect('/')
 })
 
+app.get('/delete/:word', function(req, res){
+    console.log(req.params.word);
+    var word = req.params.word;
+    var db = new sqlite3.Database('./flashcard_app.db');
+    var query = 'DELETE FROM flashcards WHERE word="'+word+'"';
+    console.log(query);
+    db.serialize(function () {
+        db.run(query, [], function(err, res){
+            console.log("DELETE WORD " + word);
+            }
+        );
+    })
+    res.redirect('/flash_cards');
+})
 
 app.listen(3000, function () {
     console.log('Express server is up on port 3000');
