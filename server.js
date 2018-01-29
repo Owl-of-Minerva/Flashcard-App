@@ -11,14 +11,13 @@ app.set('view engine', 'pug');
 
 app.get('/', function(req, res){
 })
+app.get('/pug_demo', function(req, res){
+    res.render('flashcards', { title: 'Hey', message: 'Hello there!', values: ['first', 'second', 'third']});
+})
 
 app.get('/flash_cards', function (req, res) {
     var output = "";
-    var count = 1;
-    console.log("Got a GET request for /flash_cards");
-
-
-
+    var cards = [];
     function getFlashcards(callback){
         var db = new sqlite3.Database('./flashcard_app.db');
 
@@ -43,10 +42,13 @@ app.get('/flash_cards', function (req, res) {
         else{
             rows.forEach(function(row){
                 output += row.word + "<br/> " + row.translation + "<br/> " + row.example + "<br/> <br/>";
+                cards.push(row.word);
+
             })
         }
 
-        res.send(output);
+        //res.send(output);
+        res.render('flashcards', { title: 'Flash Cards', message: 'List of Flashcards', values: cards});
     })
 
 
