@@ -7,10 +7,12 @@ html
         h1= message
         ul
             each val in values= values
-                li= val.word
-                div= val.translation
-                div= val.example
-                button(value= val.word class="edit_flashcard") edit
-                form(method="get" action="delete/"+val.word)
-                    button(value= val.word class="delete_flashcard" type="submit") delete
+                div(id=val.word)
+                    li= val.word
+                    div=val.translation
+                    div=val.example
+                    form(method="get" action="edit/"+val.word)
+                        button(value= val.word class="edit_flashcard") edit
+                    form(method="get" action="delete/"+val.word)
+                        button(value= val.word class="delete_flashcard" type="submit") delete
                 br
