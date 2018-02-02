@@ -20,7 +20,8 @@ complete_input.click(function(event){
         var sourceLang = $("#source").val();
         var targetLang = $("#target").val();
         console.log(sourceLang+ "-> "+ targetLang);
-        var sourceText = $(this).text();
+        var sourceText = $(this).text().replace(/[।?!",]/g, "");
+        console.log("Word selected: "+ sourceText);
         var url = "https://translate.googleapis.com/translate_a/single?client=gtx&sl="
             + sourceLang + "&tl=" + targetLang + "&dt=t&q=" + encodeURI(sourceText);
 
