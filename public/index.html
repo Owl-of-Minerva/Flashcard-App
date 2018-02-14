@@ -9,9 +9,32 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" />
+    <link rel="stylesheet" href="stylesheets/navigation.css" />
+
 
 </head>
 <body>
+
+<div id="topNav" class="navigation">
+  <span id="closebtn" onclick="navToggle()">
+      <span class="line1"></span>
+      <span class="line2"></span>
+      <span class="line3"></span>
+  </span>
+    <div class="logo">
+        <img src=""/>
+    </div>
+
+    <ul class="menulist">
+        <li><a class="menuitems" href="/">Home Page</a></li>
+        <li><a class="menuitems" href="#">About</a></li>
+        <li><a class="menuitems" href="/flash_cards">Flashcards</a></li>
+    </ul>
+</div>
+
+<div id="main">
+
+
 
 <div id="dialog-form" hidden title="Create New Flashcard">
     <form id="flashcard_form" method="post" action="/flash_cards">
@@ -71,5 +94,7 @@ File Name <input id="download_name" value="annotate"/>
 <a id="download"> Download Annotated File</a>
 <button id="route">My Flashcard Library</button>
 <script src="select_word.js"></script>
+
+</div>
 </body>
 </html>

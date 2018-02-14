@@ -1,18 +1,17 @@
-html
-    head
-        title= title
-        script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js")
-        script(src="https://code.jquery.com/ui/1.12.1/jquery-ui.js")
-    body
-        h1= message
-        ul
-            each val in values= values
-                div(id=val.word)
-                    li= val.word
-                    div=val.translation
-                    div=val.example
-                    form(method="get" action="edit/"+val.word)
-                        button(value= val.word class="edit_flashcard") edit
-                    form(method="get" action="delete/"+val.word)
-                        button(value= val.word class="delete_flashcard" type="submit") delete
-                br
+extends header_template.pug
+block scripts
+    script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js")
+    script(src="https://code.jquery.com/ui/1.12.1/jquery-ui.js")
+block content
+    h1= message
+    ul
+        each val in values= values
+            div(id=val.word)
+                li= val.word
+                div=val.translation
+                div=val.example
+                form(method="get" action="edit/" + val.word)
+                    button(value= val.word class="edit_flashcard") edit
+                form(method="get" action="delete/" + val.word)
+                    button(value= val.word class="delete_flashcard" type="submit") delete
+            br

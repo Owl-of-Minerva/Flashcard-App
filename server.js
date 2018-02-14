@@ -62,16 +62,16 @@ app.post('/flash_cards', function (req, res){
     var check_query = 'SELECT * FROM flashcards WHERE word="'+word + '"';
     var insert_query = "INSERT INTO flashcards(word, translation, example) VALUES ('"+ word +"','" + trans+"','" + example + "')";
     function checkIfExist(callback, next){
-       db.serialize(function(){
-           db.all(check_query, [], function(err, rows){
-               if (err){
-                   callback(err, rows, next);
-               }
-               else{
-                   callback(null, rows, next);
-               }
-           })
-       })
+        db.serialize(function(){
+            db.all(check_query, [], function(err, rows){
+                if (err){
+                    callback(err, rows, next);
+                }
+                else{
+                    callback(null, rows, next);
+                }
+            })
+        })
     }
 
     function addFlashcard(err, rows, callback){
@@ -153,12 +153,12 @@ app.get('/edit/:word', function(req, res){
         console.log(query);
         db.serialize(function () {
             db.all(query, [], function(err, rows){
-                if(err){
-                    callback(err, rows)
-                }
-                else{
-                    callback(null, rows)
-                }
+                    if(err){
+                        callback(err, rows)
+                    }
+                    else{
+                        callback(null, rows)
+                    }
 
                 }
             );
@@ -216,7 +216,9 @@ app.post('/edit/:word', function(req, res){
 
 })
 
-
+app.get('/demo', function(req, res){
+    res.render('extend_demo')
+})
 
 app.listen(3000, function () {
     console.log('Express server is up on port 3000');

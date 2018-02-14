@@ -1,0 +1,24 @@
+html
+    head
+        block scripts
+        link(rel="stylesheet" type='text/css' href="stylesheets/navigation.css")
+    body
+        div(id="topNav" class="navigation")
+            span(id="closebtn" onclick="navToggle()")
+                span(class="line1")
+                span(class="line2")
+                span(class="line3")
+
+            ul(class="menunlist")
+                li
+                    a(class="menuitems" href="/") Home Page
+                li
+                    a(class="menuitems" href="#") About
+                li
+                    a(class="menuitems" href="/flash_cards") Flashcards
+
+        div(id="main")
+            block content
+
+
+        script(src="js/navigation.js")
