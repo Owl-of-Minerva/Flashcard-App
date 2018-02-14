@@ -1,0 +1,50 @@
+extends header_template.pug
+block scripts
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react-dom.js")
+    script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js")
+    script(src="https://code.jquery.com/ui/1.12.1/jquery-ui.js")
+    link(rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css")
+
+block content
+    div(id="dialog-form" hidden title="Create New Flashcard")
+        form(id="flashcard_form" method="post" action="/flash_cards")
+            fieldset
+                label Original Word
+                input(type="text" id="original_word" name="original_word")
+                label Translation
+                input(type="text" id="translation_word" name="translation_word")
+                label Example Use
+                input(type="text" id="example_use" name="example_use" value="N/A")
+                div
+                    input(type="submit")
+
+    br
+    br
+    div
+        label Translate from
+        select(id="source")
+            option(value="hi" selected="selected") Hindi
+            option(value="zh-cn") Chinese
+            option(value="en") English
+
+        label To
+        select(id="target")
+            option(value="hi" selected="selected") Hindi
+            option(value="zh-cn") Chinese
+            option(value="en") English
+    br
+    textarea(type="text" id="translate_input" placeholder="") राजा हाथी पर तनकर बैठा था। शेर ने सोचा, मैं भी बैठूँगा। उसने जंगल के हाथी को बुलाया।
+    button(id="complete_input") Done
+    p(id="user_input")
+    ul(id="translation_list" download)
+    button(id="remove_translation_list") Remove All
+    button(id="generate_list") Generate Vocabulary List
+    p(id="generated_list")
+    label File Name
+    input(id="download_name" value="annotate")
+    br
+    a(id="download") Download Annotated File
+    script(src="js/select_word.js")
+    script(src="js/navigation.js")

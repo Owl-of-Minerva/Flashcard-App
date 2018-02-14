@@ -10,6 +10,7 @@ app.set('views', './views');
 app.set('view engine', 'pug');
 
 app.get('/', function(req, res){
+    res.render("index")
 })
 
 app.get('/flash_cards', function (req, res) {
@@ -217,7 +218,7 @@ app.post('/edit/:word', function(req, res){
 })
 
 app.get('/demo', function(req, res){
-    res.render('extend_demo')
+    res.render('index')
 })
 
 app.listen(3000, function () {

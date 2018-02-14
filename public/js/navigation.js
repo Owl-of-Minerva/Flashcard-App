@@ -17,22 +17,22 @@ close.addEventListener("click", function(){
 
 function navToggle() {
     //to close
-    if (nav.style.height <= "275px") {
+    if (nav.style.height <= "120px") {
         nav.style.height = "50px";
         main.style.marginTop = "50px";
 
         var i = 0;
         for (i = 0; i < menu.length; i++){
             menu[i].style.opacity="0.0";
-            menu[i].style.marginTop="100px";
+            menu[i].style.marginTop="10px";
         };
         document.body.style.backgroundColor = "rgba(0,0,0,0.0)";
 
     }
     //to open
     else if (nav.style.height <= "50px") {
-        nav.style.height = "275px";
-        main.style.marginTop = "275px";
+        nav.style.height = "120px";
+        main.style.marginTop = "50px";
         var i = 0;
         for (i = 0; i < menu.length; i++){
             menu[i].style.opacity="1.0";
