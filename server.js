@@ -10,8 +10,86 @@ app.set('views', './views');
 app.set('view engine', 'pug');
 
 app.get('/', function(req, res){
-    res.render("index")
+    var translations = [];
+    var textarea_input = "";
+    var db = new sqlite3.Database('./flashcard_app.db');
+    var query1 = "SELECT * FROM input";
+    var query2 = "SELECT * FROM translations";
+    function initialize(callback, next){
+        db.serialize(function(){
+            db.all(query1, [], function(err, rows){
+                if(err){
+                    callback(err, rows, next)
+                }
+                else{
+                    callback(null, rows, next)
+                }
+            })
+        })
+    }
+
+    function populate_translations(err, rows, callback){
+        if(err){
+
+        }
+        else{
+            textarea_input = rows[0].input;
+            db.serialize(function(){
+                db.all(query2, [], function(err, rows){
+                    if(err){
+                        callback(err)
+                    }
+                    else{
+                        rows.forEach(function(row) {
+                            translations.push({source: row.word, result:row.translations})
+                        })
+                        callback(null)
+                    }
+                })
+            })
+        }
+    }
+
+    initialize(populate_translations, function(err){
+        if(err){
+            res.render('index', {translations: [], textarea_input: ""})
+        }
+
+        else{
+            res.render('index', {translations: translations, textarea_input: textarea_input});
+        }
+    })
+
 })
+
+
+app.post('/', function(req, res){
+    var db = new sqlite3.Database('./flashcard_app.db');
+    var query = "DELETE FROM translations";
+    var input = req.body.translate_input
+    function cleanup(callback){
+        db.serialize(function(){
+            db.run(query, function(err){
+                if(err){
+                    callback(err)
+                }
+                else{
+                    callback(null)
+                }
+            })
+        })
+    }
+
+    cleanup(function(err){
+        if(err){
+
+        }
+        else{
+            res.render('index', {translations: [], textarea_input: input})
+        }
+    })
+})
+
 
 app.get('/flash_cards', function (req, res) {
     var output = "";
@@ -143,6 +221,17 @@ app.get('/delete/:word', function(req, res){
 
 })
 
+
+app.get('/add/:word', function(req, res){
+    console.log(req.query.source);
+    console.log(req.query.result);
+    var source = req.query.source;
+    var result = req.query.result;
+    res.render('add_flashcard', {source: source, result: result});
+})
+
+
+
 app.get('/edit/:word', function(req, res){
     console.log(req.params.word);
     var word = req.params.word;
@@ -218,7 +307,7 @@ app.post('/edit/:word', function(req, res){
 })
 
 app.get('/demo', function(req, res){
-    res.render('index')
+    res.render("add_flashcard");
 })
 
 app.listen(3000, function () {

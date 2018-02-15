@@ -37,8 +37,16 @@ complete_input.click(function(event){
             translatedText = result;
             console.log("translated text: "+translatedText);
             selectedWord.attr('title', translatedText);
-            $('#translation_list').append('<div class="translation_div"><li>'+ sourceText+": "+result+ '</li class="translation_result"> ' +
-                '<button class="add_card"> Add to Flashcard</button> <button class="remove_card">Remove</button></div>');
+
+            //<form action="/my/link/location" method="get">
+            //<input type="submit" value="Go to my link location"
+            //name="Submit" id="frm1_submit" />
+            //    </form>
+
+
+           // $('#translation_list').append('<div class="translation_div"><li>'+ sourceText+": "+result+ '</li class="translation_result"> ' +
+             //   '<form action="/add/' + sourceText + '" method="get"><button class="add_card" type="submit"> Add to Flashcard</button></form> <button class="remove_card">Remove</button></div>');
+            $('#translation_list').append('<form action="/add/' + sourceText + '" method="get"><li class="translation_result"><input type="text" name="source" value="' + sourceText + '"><label>:</label><input type="text" name="result" value="' + result +'"></li><button type="submit">Add</button><button>Remove</button></form>')
             $( function() {
                 var dialog, form;
                     dialog = $( "#dialog-form" ).dialog({

@@ -1,13 +1,13 @@
-html
-    head
-
-    body
-        form(id="edit_flashcard_form" method="post" action="/edit/"+word)
-            fieldset
-                input(type="text" value=word name="original_word")
-                label Translation
-                input(type="text" value=translation name="translation_word")
-                label Example Use
-                input(type="text" value=example name="example_use")
-                div
-                    input(type="submit")
+extends sidebar.pug
+block content
+    br
+    br
+    form(id="edit_flashcard_form" method="post" action="/edit/" + word)
+        fieldset
+            input(type="text" value=word name="original_word")
+            label Translation
+            input(type="text" value=translation name="translation_word")
+            label Example Use
+            input(type="text" value=example name="example_use")
+            div
+                input(type="submit")

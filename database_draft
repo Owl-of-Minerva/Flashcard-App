@@ -1,0 +1,18 @@
+CREATE TABLE
+IF NOT EXISTS flashcards (
+ word text,
+ translation text,
+ example text
+);
+
+INSERT INTO flashcards(
+word,
+translation,
+example
+)
+VALUES
+(
+'दिन',
+'day',
+'एक दिन उसे शहर का राजा दिखा'
+);

@@ -1,0 +1,16 @@
+extends sidebar.pug
+
+block content
+    br
+    br
+    div(id="dialog-form" title="Create New Flashcard")
+        form(id="flashcard_form" method="post" action="/flash_cards")
+            fieldset
+                label Original Word
+                input(type="text" id="original_word" name="original_word" value= source)
+                label Translation
+                input(type="text" id="translation_word" name="translation_word" value= result)
+                label Example Use
+                input(type="text" id="example_use" name="example_use" value="N/A")
+                div
+                    input(type="submit")
