@@ -1,0 +1,25 @@
+extends sidebar.pug
+
+block content
+    form(action="/review_flashcard" method="post")
+        fieldset
+            if order_selected == "chronological"
+                select(id="order" name="order")
+                    option(value="chronological" selected="selected") chronological
+                    option(value="alphabetical") alphabetical
+                    option(value="random") random
+                button(type="submit") confirm
+
+            else if order_selected == "alphabetical"
+                select(id="order" name="order")
+                    option(value="chronological") chronological
+                    option(value="alphabetical" selected="selected") alphabetical
+                    option(value="random") random
+                button(type="submit") confirm
+
+            else
+                select(id="order" name="order")
+                    option(value="chronological") chronological
+                    option(value="alphabetical") alphabetical
+                    option(value="random" selected="selected") random
+                button(type="submit") confirm

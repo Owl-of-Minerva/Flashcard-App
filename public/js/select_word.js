@@ -46,41 +46,8 @@ complete_input.click(function(event){
 
            // $('#translation_list').append('<div class="translation_div"><li>'+ sourceText+": "+result+ '</li class="translation_result"> ' +
              //   '<form action="/add/' + sourceText + '" method="get"><button class="add_card" type="submit"> Add to Flashcard</button></form> <button class="remove_card">Remove</button></div>');
-            $('#translation_list').append('<form action="/add/' + sourceText + '" method="get"><li class="translation_result"><input type="text" name="source" value="' + sourceText + '"><label>:</label><input type="text" name="result" value="' + result +'"></li><button type="submit">Add</button><button>Remove</button></form>')
+            $('#translation_list').append('<form class="translation_div" action="/add/' + sourceText + '" method="get"><li class="translation_result"><input type="text" name="source" value="' + sourceText + '"><label>:</label><input type="text" name="result" value="' + result +'"></li><button type="submit">Add</button><button class="remove_card">Remove</button></form>')
             $( function() {
-                var dialog, form;
-                    dialog = $( "#dialog-form" ).dialog({
-                        autoOpen: false,
-                        height: 400,
-                        width: 350,
-                        modal: true,
-                        buttons: {
-                            // "Create an account": addUser,
-                            Cancel: function() {
-                                dialog.dialog( "close" );
-                            }
-                        },
-                        close: function() {
-                            //form[ 0 ].reset();
-                            //allFields.removeClass( "ui-state-error" );
-                        }
-                    });
-
-                //form = dialog.find( "form" ).on( "submit", function( event ) {
-                //  event.preventDefault();
-                //addUser();
-                //});
-
-
-
-                $( "button.add_card" ).click(function(event) {
-                    console.log('add card clicked');
-
-                    $("#dialog-form #original_word").val(sourceText);
-                    $("#dialog-form #translation_word").val(result);
-                    dialog.dialog( "open" );
-                });
-
                 $("button.remove_card").click(function (event) {
                     console.log('remove card clicked');
                     //$(this).parent("#translation_div").remove();

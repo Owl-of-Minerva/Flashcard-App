@@ -43,16 +43,16 @@ block content
                         input(type="text" name="source" value=translation.source)
                         label :
                         input(type="text" name="result" value=translation.result)
-                    button(type="submit") Add
-                    button Remove
+                    button(type="submit") Add to Lib
+                    button(class="remove_card") Remove from List
 
 
-    button(id="remove_translation_list") Remove All
+    button(id="remove_translation_list") Remove All Words
     button(id="generate_list") Generate Vocabulary List
     p(id="generated_list")
     label File Name
     input(id="download_name" value="annotate")
     br
     a(id="download") Download Annotated File
-    script(src="js/select_word.js")
-    script(src="js/navigation.js")
+    script(src="/js/select_word.js")
+

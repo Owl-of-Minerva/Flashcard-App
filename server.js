@@ -2,9 +2,11 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var sqlite3 = require('sqlite3').verbose();
+var path = require('path');
 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended : true }));
+app.locals.basedir = path.join(__dirname, '/');
 
 app.set('views', './views');
 app.set('view engine', 'pug');
@@ -305,11 +307,89 @@ app.post('/edit/:word', function(req, res){
     })
 
 })
+app.get('/review_flashcard/', function(req, res){
+    var index = 0;
 
-app.get('/demo', function(req, res){
-    res.render("add_flashcard");
+    res.render("review_flashcard");
 })
 
+app.get('/review_flashcard/alphabetical', function(req, res){
+    res.render("review_flashcard_alphabetical");
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+app.get('/review_flashcard/chronological', function(req, res){
+    //res.render("review_flashcard_random");
+    res.redirect("/review_flashcard/chronological/0");
+})
+
+
+app.get('/review_flashcard/chronological/:index', function(req, res){
+    var db = new sqlite3.Database('./flashcard_app.db');
+    var query = "SELECT * FROM flashcards";
+    var index = parseInt(req.params.index);
+
+
+    function review_flashcard(callback){
+        db.serialize(function(){
+            db.all(query, [], function(err, rows){
+                if(err){
+                    callback(err, rows)
+                }
+                else{
+                    callback(null, rows)
+                }
+            })
+        })
+    }
+
+    review_flashcard(function(err,rows){
+        if(err){
+
+        }
+        else{
+
+            if(index > rows.length-1){
+                res.redirect('/review_flashcard/chronological/'+ (rows.length-1))
+            }
+            else if (index < 0){
+                res.redirect("/review_flashcard/chronological/0");
+            }
+            else{
+                var row = rows[index];
+                var word = row.word;
+                var translation = row.translation;
+                res.render('review_flashcard_chronological', {index: index, word: word, translation: translation})
+
+            }
+        }
+    })
+})
+
+
+
+
+app.post('/review_flashcard', function(req, res){
+    console.log(req.body.order);
+    var order = req.body.order;
+    console.log("redirect to "+ "/review_flashcard/"+order);
+    res.redirect("/review_flashcard/"+order);
+    //res.redirect("/flash_cards");
+})
 app.listen(3000, function () {
     console.log('Express server is up on port 3000');
 });

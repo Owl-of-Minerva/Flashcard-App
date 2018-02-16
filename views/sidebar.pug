@@ -6,8 +6,8 @@ html
         meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
         meta(name="description" content="")
         meta(name="author" content="")
-        link(href="stylesheets/bootstrap.min.css" rel="stylesheet")
-        link(href="stylesheets/simple-sidebar.css" rel="stylesheet")
+        link(href="/stylesheets/bootstrap.min.css" rel="stylesheet")
+        link(href="/stylesheets/simple-sidebar.css" rel="stylesheet")
         block scripts
 
 
@@ -20,7 +20,7 @@ html
             ul(class="nav navbar-nav")
                 li
                     button(href="#menu-toggle" class="btn btn-secondary" id="menu-toggle")
-                        img(src="img/hamburger_icon.png")
+                        img(src="/img/hamburger_icon.png")
 
 
         div(id="wrapper")
@@ -32,6 +32,8 @@ html
                         a(class="menuitems" href="#") About
                     li
                         a(class="menuitems" href="/flash_cards") Flashcards
+                    li
+                        a(class="menuitems" href="/review_flashcard") Review
 
             div(id="page-content-wrapper")
                 div(class="container-fluid")
@@ -39,8 +41,8 @@ html
                     block content
 
 
-        script(src="js/jquery.min.js")
-        script(src="js/bootstrap.bundle.min.js")
-        script(src="js/sidebar.js")
+        script(src="/js/jquery.min.js")
+        script(src="/js/bootstrap.bundle.min.js")
+        script(src="/js/sidebar.js")
 
 
