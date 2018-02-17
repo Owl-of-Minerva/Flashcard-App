@@ -308,28 +308,60 @@ app.post('/edit/:word', function(req, res){
 
 })
 app.get('/review_flashcard/', function(req, res){
-    var index = 0;
-
     res.render("review_flashcard");
 })
 
+
+
+
 app.get('/review_flashcard/alphabetical', function(req, res){
-    res.render("review_flashcard_alphabetical");
+    //res.render("review_flashcard_random");
+    res.redirect("/review_flashcard/alphabetical/0");
 })
 
 
+app.get('/review_flashcard/alphabetical/:index', function(req, res){
+    var db = new sqlite3.Database('./flashcard_app.db');
+    var query = "SELECT * FROM flashcards order by word";
+    var index = parseInt(req.params.index);
 
 
+    function review_flashcard(callback){
+        db.serialize(function(){
+            db.all(query, [], function(err, rows){
+                if(err){
+                    callback(err, rows)
+                }
+                else{
+                    callback(null, rows)
+                }
+            })
+        })
+    }
 
+    review_flashcard(function(err,rows){
+        if(err){
 
+        }
+        else{
 
+            if(index > rows.length-1){
+                res.redirect('/review_flashcard/alphabetical/'+ (rows.length-1))
+            }
+            else if (index < 0){
+                res.redirect("/review_flashcard/alphabetical/0");
+            }
+            else{
+                var row = rows[index];
+                var word = row.word;
+                var translation = row.translation;
+                var example = row.example;
+                res.render('review_flashcard_alphabetical', {index: index, word: word, translation: translation, example: example})
 
-
-
-
-
-
-
+            }
+        }
+    })
+})
 
 
 app.get('/review_flashcard/chronological', function(req, res){
@@ -373,9 +405,52 @@ app.get('/review_flashcard/chronological/:index', function(req, res){
                 var row = rows[index];
                 var word = row.word;
                 var translation = row.translation;
-                res.render('review_flashcard_chronological', {index: index, word: word, translation: translation})
+                var example = row.example;
+                res.render('review_flashcard_chronological', {index: index, word: word, translation: translation, example: example})
 
             }
+        }
+    })
+})
+
+
+
+app.get('/review_flashcard/random', function(req, res){
+    //res.render("review_flashcard_random");
+    res.redirect("/review_flashcard/random/0");
+})
+
+
+app.get('/review_flashcard/random/:index', function(req, res){
+    var db = new sqlite3.Database('./flashcard_app.db');
+    var query = "SELECT * FROM flashcards";
+    var index = parseInt(req.params.index);
+
+
+    function review_flashcard(callback){
+        db.serialize(function(){
+            db.all(query, [], function(err, rows){
+                if(err){
+                    callback(err, rows)
+                }
+                else{
+                    callback(null, rows)
+                }
+            })
+        })
+    }
+
+    review_flashcard(function(err,rows){
+        if(err){
+
+        }
+        else{
+                var max = rows.length;
+                var row = rows[index];
+                var word = row.word;
+                var translation = row.translation;
+                var example = row.example;
+                res.render('review_flashcard_random', { index: index, max: max, word: word, translation: translation, example: example})
         }
     })
 })
