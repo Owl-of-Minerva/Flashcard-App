@@ -1,6 +1,13 @@
 $("#next_button").click(function(event){
     console.log("next button clicked")
-    var next = parseInt(this.value) + 1 + "";
+    var max = parseInt($("#max").val());
+    var next = parseInt(this.value) + 1;
+    if (next > max){
+        next = max + "";
+    }
+    else{
+        next = next + "";
+    }
     var digits = next.length
     var url = window.location.href;
     var cut_url = url.substring(0, url.length-digits)

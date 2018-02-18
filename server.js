@@ -456,8 +456,6 @@ app.get('/review_flashcard/random/:index', function(req, res){
 })
 
 
-
-
 app.post('/review_flashcard', function(req, res){
     console.log(req.body.order);
     var order = req.body.order;
@@ -465,6 +463,64 @@ app.post('/review_flashcard', function(req, res){
     res.redirect("/review_flashcard/"+order);
     //res.redirect("/flash_cards");
 })
+
+
+
+
+
+
+
+
+
+
+app.get('/flashcards/entries=:number', function(req,res){
+    var number = req.params.number;
+    res.redirect('/flashcards/entries=' + number + "/page=0");
+})
+
+app.get('/flashcards/entries=:number/page=:page', function(req, res){
+    var number = parseInt(req.params.number);
+    var page = parseInt(req.params.page);
+    var db = new sqlite3.Database('./flashcard_app.db');
+    var query = "SELECT * FROM  flashcards";
+
+    function fetchFlashcards(callback){
+        db.serialize(function(){
+            db.all(query, function (err, rows){
+                if(err){
+                    callback(err, rows);
+                }
+                else{
+                    callback(null, rows);
+                }
+            })
+        })
+    }
+
+    fetchFlashcards(function(err, rows){
+        if(err){
+
+        }
+        else{
+            var max = Math.ceil(rows.length / number) -1;
+            var begin = page * number;
+            var end = (page+1) * number;
+            var flashcards = rows.slice(begin, end);
+            console.log("begin: " + begin);
+            console.log("end: "+ end)
+            res.render('flashcards', { max: max, title: 'Flash Cards', message: 'List of Flashcards', values: flashcards});
+
+        }
+    })
+
+})
+
+
+
+
+
+
+
 app.listen(3000, function () {
     console.log('Express server is up on port 3000');
 });
