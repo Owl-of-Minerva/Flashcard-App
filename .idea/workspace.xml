@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b6907ff5-4909-42be-a9d4-21f3abd9b776" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/flashcards_single.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/stylesheets/flashcards_single.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/flashcards_single.pug" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/flashcard_app.db" afterPath="$PROJECT_DIR$/flashcard_app.db" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/flashcards.js" afterPath="$PROJECT_DIR$/public/js/flashcards.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/stylesheets/flashcards.css" afterPath="$PROJECT_DIR$/public/stylesheets/flashcards.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server.js" afterPath="$PROJECT_DIR$/server.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/flashcards.pug" afterPath="$PROJECT_DIR$/views/flashcards.pug" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/add_flashcard.pug" afterPath="$PROJECT_DIR$/views/add_flashcard.pug" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/sidebar.pug" afterPath="$PROJECT_DIR$/views/sidebar.pug" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -32,37 +27,73 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="server.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="server.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1052">
-              <caret line="313" column="0" lean-forward="true" selection-start-line="313" selection-start-column="0" selection-end-line="313" selection-end-column="0" />
+            <state relative-caret-position="3585">
+              <caret line="265" column="41" lean-forward="false" selection-start-line="265" selection-start-column="41" selection-end-line="265" selection-end-column="41" />
               <folding>
-                <element signature="e#1885#2482#0" expanded="false" />
-                <element signature="e#2530#3427#0" expanded="false" />
-                <element signature="e#3477#4868#0" expanded="false" />
-                <element signature="e#4914#5598#0" expanded="false" />
-                <element signature="e#5898#6798#0" expanded="false" />
-                <element signature="e#6844#7709#0" expanded="false" />
-                <element signature="e#7759#7798#0" expanded="false" />
-                <element signature="e#7864#7966#0" expanded="false" />
-                <element signature="e#8037#9206#0" expanded="false" />
-                <element signature="e#9271#9374#0" expanded="false" />
-                <element signature="e#9446#10604#0" expanded="false" />
-                <element signature="e#10663#10759#0" expanded="false" />
-                <element signature="e#10824#11742#0" expanded="false" />
-                <element signature="e#12054#12674#0" expanded="false" />
-                <element signature="e#12908#13921#0" expanded="false" />
+                <element signature="e#1981#2601#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="flashcards.pug" pinned="false" current-in-tab="true">
+      <file leaf-file-name="sidebar.pug" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/sidebar.pug">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="630">
+              <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.pug" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/index.pug">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-237">
+              <caret line="8" column="0" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="8" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="edit_flashcard.pug" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/edit_flashcard.pug">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" column="11" lean-forward="false" selection-start-line="1" selection-start-column="11" selection-end-line="1" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="flashcards.pug" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/flashcards.pug">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="330">
               <caret line="22" column="13" lean-forward="false" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="add_flashcard.pug" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/add_flashcard.pug">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="20" lean-forward="true" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="flashcards.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/js/flashcards.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="13" column="29" lean-forward="false" selection-start-line="13" selection-start-column="29" selection-end-line="13" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -115,12 +146,10 @@
         <option value="$PROJECT_DIR$/views/header_template.pug" />
         <option value="$PROJECT_DIR$/public/js/sidebar.js" />
         <option value="$PROJECT_DIR$/views/edit_flashcard.pug" />
-        <option value="$PROJECT_DIR$/views/add_flashcard.pug" />
         <option value="$PROJECT_DIR$/public/stylesheets/simple-sidebar.css" />
         <option value="$PROJECT_DIR$/views/review_flashcard.pug" />
         <option value="$PROJECT_DIR$/public/stylesheets/review.css" />
         <option value="$PROJECT_DIR$/views/review_flashcard/alphabetical.pug" />
-        <option value="$PROJECT_DIR$/views/sidebar.pug" />
         <option value="$PROJECT_DIR$/views/review_flashcard_chron.pug" />
         <option value="$PROJECT_DIR$/views/index.pug" />
         <option value="$PROJECT_DIR$/public/js/select_word.js" />
@@ -131,13 +160,15 @@
         <option value="$PROJECT_DIR$/public/stylesheets/flashcards.js" />
         <option value="$PROJECT_DIR$/public/js/review_chronological.js" />
         <option value="$PROJECT_DIR$/public/js/review_alphabetical.js" />
-        <option value="$PROJECT_DIR$/server.js" />
         <option value="$PROJECT_DIR$/public/js/flashcards_single.js" />
         <option value="$PROJECT_DIR$/public/stylesheets/flashcards_single.css" />
         <option value="$PROJECT_DIR$/views/flashcards_single.pug" />
         <option value="$PROJECT_DIR$/public/js/flashcards.js" />
         <option value="$PROJECT_DIR$/public/stylesheets/flashcards.css" />
         <option value="$PROJECT_DIR$/views/flashcards.pug" />
+        <option value="$PROJECT_DIR$/views/add_flashcard.pug" />
+        <option value="$PROJECT_DIR$/views/sidebar.pug" />
+        <option value="$PROJECT_DIR$/server.js" />
       </list>
     </option>
   </component>
@@ -159,8 +190,8 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="1436" />
     <option name="y" value="76" />
-    <option name="width" value="1270" />
-    <option name="height" value="723" />
+    <option name="width" value="1764" />
+    <option name="height" value="724" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -364,15 +395,15 @@
       <workItem from="1516163249669" duration="424000" />
       <workItem from="1516228046490" duration="46974000" />
       <workItem from="1517285605311" duration="10196000" />
-      <workItem from="1518574840780" duration="52560000" />
+      <workItem from="1518574840780" duration="54082000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="110154000" />
+    <option name="totallyTimeSpent" value="111676000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1436" y="76" width="1270" height="723" extended-state="0" />
+    <frame x="1436" y="76" width="1764" height="724" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -387,8 +418,8 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24674267" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19055374" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17595819" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1358885" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17834395" sideWeight="0.49674267" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -466,21 +497,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#1885#2482#0" expanded="false" />
-            <element signature="e#2530#3427#0" expanded="false" />
-            <element signature="e#3477#4868#0" expanded="false" />
-            <element signature="e#4914#5598#0" expanded="false" />
-            <element signature="e#5898#6798#0" expanded="false" />
-            <element signature="e#6844#7709#0" expanded="false" />
-            <element signature="e#7759#7798#0" expanded="false" />
-            <element signature="e#7864#7966#0" expanded="false" />
-            <element signature="e#8037#9206#0" expanded="false" />
-            <element signature="e#9271#9374#0" expanded="false" />
-            <element signature="e#9446#10604#0" expanded="false" />
-            <element signature="e#10663#10759#0" expanded="false" />
-            <element signature="e#10824#11742#0" expanded="false" />
-            <element signature="e#12054#12674#0" expanded="false" />
-            <element signature="e#12908#13921#0" expanded="false" />
+            <element signature="e#1981#2601#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -634,14 +651,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/sidebar.pug">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="22" column="34" lean-forward="false" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/stylesheets/simple-sidebar.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="214">
@@ -690,34 +699,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/add_flashcard.pug">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="19" lean-forward="false" selection-start-line="0" selection-start-column="19" selection-end-line="0" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/edit_flashcard.pug">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="11" lean-forward="false" selection-start-line="1" selection-start-column="11" selection-end-line="1" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/review_flashcard.pug">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="46" lean-forward="false" selection-start-line="5" selection-start-column="46" selection-end-line="5" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/index.pug">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="0" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="8" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -801,33 +786,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/flashcards.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state relative-caret-position="195">
           <caret line="13" column="29" lean-forward="false" selection-start-line="13" selection-start-column="29" selection-end-line="13" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server.js">
+    <entry file="file://$PROJECT_DIR$/views/index.pug">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1052">
-          <caret line="313" column="0" lean-forward="true" selection-start-line="313" selection-start-column="0" selection-end-line="313" selection-end-column="0" />
-          <folding>
-            <element signature="e#1885#2482#0" expanded="false" />
-            <element signature="e#2530#3427#0" expanded="false" />
-            <element signature="e#3477#4868#0" expanded="false" />
-            <element signature="e#4914#5598#0" expanded="false" />
-            <element signature="e#5898#6798#0" expanded="false" />
-            <element signature="e#6844#7709#0" expanded="false" />
-            <element signature="e#7759#7798#0" expanded="false" />
-            <element signature="e#7864#7966#0" expanded="false" />
-            <element signature="e#8037#9206#0" expanded="false" />
-            <element signature="e#9271#9374#0" expanded="false" />
-            <element signature="e#9446#10604#0" expanded="false" />
-            <element signature="e#10663#10759#0" expanded="false" />
-            <element signature="e#10824#11742#0" expanded="false" />
-            <element signature="e#12054#12674#0" expanded="false" />
-            <element signature="e#12908#13921#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="-237">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="8" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -836,6 +805,40 @@
         <state relative-caret-position="330">
           <caret line="22" column="13" lean-forward="false" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/edit_flashcard.pug">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="11" lean-forward="false" selection-start-line="1" selection-start-column="11" selection-end-line="1" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/add_flashcard.pug">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="20" lean-forward="true" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/sidebar.pug">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3585">
+          <caret line="265" column="41" lean-forward="false" selection-start-line="265" selection-start-column="41" selection-end-line="265" selection-end-column="41" />
+          <folding>
+            <element signature="e#1981#2601#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
