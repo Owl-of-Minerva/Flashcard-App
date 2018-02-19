@@ -2,7 +2,7 @@ extends sidebar.pug
 block scripts
     script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js")
     script(src="https://code.jquery.com/ui/1.12.1/jquery-ui.js")
-    link(rel="stylesheet" href="/stylesheets/flashcards.css")
+    link(rel="stylesheet" href="/stylesheets/flashcards_single.css")
 
 block content
     h1= message
@@ -10,21 +10,20 @@ block content
     a(class="number_per_page" href="/flashcards/entries=5") 5
     a(class="number_per_page" href="/flashcards/entries=10") 10
 
-    br
-    a(class="next_page" href="#") Next
-    a(class="previous_page" href="#") Previous
 
     ul
         each val in values= values
             div(id=val.word)
                 li= val.word
-                div=val.translation
-                div=val.example
+                p=val.translation
+                p=val.example
                 form(method="get" action="edit/" + val.word)
                     button(value= val.word class="edit_flashcard") edit
                 form(method="get" action="delete/" + val.word)
                     button(value= val.word class="delete_flashcard" type="submit") delete
+
+    a(href="#" id="load_more") Load More
     p(class="totop")
         a(href="#top") Back to Top
 
-    script(src="/js/flashcards.js")
+    script(src="/js/flashcards_single.js")

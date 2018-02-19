@@ -35,6 +35,28 @@ $(".previous_page").click(function(event){
 )
 
 
+
+
+/*
+	Load more content with jQuery - May 21, 2013
+	(c) 2013 @ElmahdiMahmoud
+*/
+
+$(function () {
+    $("ul div").slice(0, 4).show();
+    console.log($("ul div").slice(0, 4));
+    $("#load_more").on('click', function (e) {
+        e.preventDefault();
+        $("div:hidden").slice(0, 4).slideDown();
+        if ($("div:hidden").length == 0) {
+            $("#load").fadeOut('slow');
+        }
+        $('html,body').animate({
+            scrollTop: $(this).offset().top
+        }, 1500);
+    });
+});
+
 $('a[href=#top]').click(function () {
     $('body,html').animate({
         scrollTop: 0
@@ -49,4 +71,3 @@ $(window).scroll(function () {
         $('.totop a').fadeOut();
     }
 });
-

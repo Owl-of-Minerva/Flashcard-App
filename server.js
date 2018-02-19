@@ -56,7 +56,6 @@ app.get('/', function(req, res){
         if(err){
             res.render('index', {translations: [], textarea_input: ""})
         }
-
         else{
             res.render('index', {translations: translations, textarea_input: textarea_input});
         }
@@ -469,7 +468,33 @@ app.post('/review_flashcard', function(req, res){
 
 
 
+app.get('/flashcards', function(req, res){
+    var db = new sqlite3.Database('./flashcard_app.db');
+    var query = "SELECT * FROM  flashcards";
+    function fetchFlashcards(callback){
+        db.serialize(function(){
+            db.all(query, function (err, rows){
+                if(err){
+                    callback(err, rows);
+                }
+                else{
+                    callback(null, rows);
+                }
+            })
+        })
+    }
 
+    fetchFlashcards(function(err, rows){
+        if(err){
+
+        }
+        else{
+            res.render('flashcards_single', { message: 'List of Flashcards', values: rows});
+
+        }
+    })
+
+})
 
 
 
