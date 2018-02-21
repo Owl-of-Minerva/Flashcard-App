@@ -37,7 +37,6 @@ $("#previous_button").click(function(event){
 })
 
 $("#show_translation").click(function (event) {
-
     console.log("button value: " + $(this).val() )
     if($(this).val() == "show"){
         $("#translation").removeAttr("hidden");

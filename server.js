@@ -61,7 +61,6 @@ app.get('/', function(req, res){
             res.render('index', {translations: translations, textarea_input: textarea_input});
         }
     })
-
 })
 
 app.post('/', function(req, res){
@@ -87,7 +86,7 @@ app.post('/', function(req, res){
 
         }
         else{
-            res.render('index', {translations: [], textarea_input: input})
+            res.render('index', {translations: [], textarea_input: input});
         }
     })
 })
@@ -119,7 +118,7 @@ app.get('/delete/:word', function(req, res){
         else{
 
         }
-        res.redirect('/flash_cards');
+        res.redirect('/flashcards');
     })
 
 })
@@ -455,6 +454,98 @@ app.get('/flashcards/entries=:number/page=:page', function(req, res){
 
 })
 
+app.post('/add_flashcards', function(req, res){
+    var body = req.body;
+    var values = [];
+    for (word in body){
+        values.push({word: word, translation: body[word]});
+    }
+
+    res.render('add_flashcards', {values: values});
+})
+
+app.post('/add_batch', function(req, res){
+    console.log(req.body);
+    var body = req.body;
+    var words = [];
+    var translations = [];
+    var examples = [];
+    var queries = [];
+    var count = 0;
+    for (name in req.body){
+       if (count % 3 == 0){
+          words.push(body[name]);
+       }
+       else if (count % 3 == 1){
+          translations.push(body[name]);
+       }
+       else{
+          examples.push(body[name]);
+       }
+       count++;
+    }
+    console.log(words);
+    console.log(translations);
+    console.log(examples);
+    for (var i = 0; i < words.length; i++){
+        var word = words[i];
+        var translation = translations[i];
+        var example = examples[i];
+        var insert = "INSERT INTO flashcards(word,translation,example) VALUES" + "('" + word + "', '" + translation + "', '" + example + "')";
+        queries.push(insert);
+    }
+    var query = queries.join(";");
+    var db = new sqlite3.Database('./flashcard_app.db');
+    function insertFlashcards(callback){
+        db.serialize(function(){
+            db.run(query, function(err){
+                if(err){
+                    callback(err);
+                }
+                else{
+                    callback(null);
+                }
+            })
+        })
+    }
+
+    insertFlashcards(function(err){
+        db.close();
+        if(err){
+
+        }
+        else{
+            res.redirect('/flashcards');
+        }
+    })
+})
+
+app.get('/moving', function(req, res){
+    var db = new sqlite3.Database('./flashcard_app.db');
+    var query = "SELECT * FROM  flashcards";
+    function fetchFlashcards(callback){
+        db.serialize(function(){
+            db.all(query, function (err, rows){
+                if(err){
+                    callback(err, rows);
+                }
+                else{
+                    callback(null, rows);
+                }
+            })
+        })
+    }
+
+    fetchFlashcards(function(err, rows){
+        db.close();
+        if(err){
+
+        }
+        else{
+            res.render('review_flashcard_moving', { flashcards: rows});
+    }
+    })
+})
 app.listen(3000, function () {
     console.log('Express server is up on port 3000');
 });

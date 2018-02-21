@@ -8,6 +8,8 @@ html
         meta(name="author" content="")
         link(href="/stylesheets/bootstrap.min.css" rel="stylesheet")
         link(href="/stylesheets/simple-sidebar.css" rel="stylesheet")
+        script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js")
+        script(src="https://code.jquery.com/ui/1.12.1/jquery-ui.js")
         block scripts
 
 
@@ -29,11 +31,11 @@ html
                     li
                         a(class="menuitems" href="/") Home Page
                     li
-                        a(class="menuitems" href="#") About
-                    li
                         a(class="menuitems" href="/flashcards") Flashcards
                     li
                         a(class="menuitems" href="/review_flashcard") Review
+                    li
+                        a(class="menuitems" href="#") About
 
             div(id="page-content-wrapper")
                 div(class="container-fluid")

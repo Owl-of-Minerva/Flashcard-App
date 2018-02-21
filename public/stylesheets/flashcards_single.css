@@ -2,11 +2,10 @@ a {
     padding: 10px;
 }
 
-ul div {
+.slider {
     display:none;
     padding: 10px;
     margin-bottom: 5px;
-    background-color: #f1f1f1;
 }
 .totop {
     position: fixed;
@@ -42,3 +41,86 @@ a:hover {
     background-color: #fff;
     color: #33739E;
 }
+@import url(https://fonts.googleapis.com/css?family=Nunito:400,700);
+body {
+    background-color: #4c4f52;
+    font-family: 'Nunito', sans-serif;
+    font-size: 14pt;
+}
+.slider {
+    padding-top: 30px;
+    margin: 1% 1% 1% 1%;
+    color: white;
+    width: 18%;
+    height: 250px;
+    position: relative;
+    box-shadow: 0px 0px 6px 3px #303234, 0 30px 20px -15px #303234;
+    overflow: hidden;
+}
+.slider::before {
+    content: "";
+    background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/81117/albert-einstein.png);
+    background-size: cover;
+    opacity: 0.10;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+}
+.slider > .slide {
+    top: 65px;
+    position: absolute;
+}
+
+.center {
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+.slide_translation {
+    padding: 0 20px;
+    font-size: 18pt;
+    text-align: center;
+}
+.slide_word {
+    width: 315px;
+    left: 0;
+    bottom: 23px;
+    right: 0;
+    margin: auto;
+    text-align: center;
+}
+
+.slide_word img {
+    width: 62px;
+    height: 62px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border: 5px solid #2ec7bf;
+    position: absolute;
+    left: 0;
+    bottom: 25px;
+    right: 0;
+    margin: auto;
+}
+.love {
+    border-radius: 50%;
+    border: 2px solid white;
+    padding: 4px 4px 2px 4px;
+    right: 18px;
+    top: 16px;
+    position: absolute;
+    content: '\f08a';
+    font-family: FontAwesome;
+    display: block;
+}
+.love:hover:before {
+    color: #2ec7bf;
+    content: '\f004';
+}
+

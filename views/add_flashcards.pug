@@ -1,0 +1,10 @@
+extends sidebar.pug
+
+block content
+   form(id="add_all_flashcards" action="/add_batch" method="post")
+       for value in values
+           input(type="text" class="original_word" name= value.word value= value.word)
+           input(type="text" class="translation_word" name=value.translation  value= value.translation)
+           input(type="text" class="example_use" name= value.word+"_example" value= "N/A")
+           br
+       button(type="submit") Add All

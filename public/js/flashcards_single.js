@@ -35,7 +35,9 @@ $(".previous_page").click(function(event){
 )
 
 
-
+$(function() {
+    //$(".slider").each().attr("display", "none");
+})
 
 /*
 	Load more content with jQuery - May 21, 2013
@@ -43,12 +45,14 @@ $(".previous_page").click(function(event){
 */
 
 $(function () {
-    $("ul div").slice(0, 4).show();
-    console.log($("ul div").slice(0, 4));
+    $(".slide").slice(0, 4).show();
+    console.log(  $(".slide").slice(0, 4));
+    console.log($(".slide:hidden").slice(0, 4));
+    console.log($(".slide:hidden").length);
     $("#load_more").on('click', function (e) {
         e.preventDefault();
-        $("div:hidden").slice(0, 4).slideDown();
-        if ($("div:hidden").length == 0) {
+        $(".slide:hidden").slice(0, 4).slideDown();
+        if ($(".slide:hidden").length == 0) {
             $("#load").fadeOut('slow');
         }
         $('html,body').animate({
@@ -56,6 +60,7 @@ $(function () {
         }, 1500);
     });
 });
+
 
 $('a[href=#top]').click(function () {
     $('body,html').animate({

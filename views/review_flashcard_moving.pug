@@ -1,0 +1,21 @@
+extends sidebar.pug
+block scripts
+    script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js")
+    script(src="https://code.jquery.com/ui/1.12.1/jquery-ui.js")
+    link(href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet")
+    link(href="/stylesheets/review_moving.css" rel="stylesheet")
+
+block content
+
+    div(class='slider center')
+        div(class='counter')
+        div(class='lang')
+        div(class='love fa fa-heart-o')
+        div(class='progress')
+        each flashcard in flashcards= flashcards
+            div(class='slide')
+                div(class="slide_word")= flashcard.word
+                div(class='slide_translation')= flashcard.translation
+
+
+    script(src="/js/review_moving.js")

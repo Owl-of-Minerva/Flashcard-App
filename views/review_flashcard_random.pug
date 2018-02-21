@@ -6,19 +6,25 @@ block scripts
     script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js")
     script(src="https://code.jquery.com/ui/1.12.1/jquery-ui.js")
     link(rel="stylesheet" href="/stylesheets/review.css")
+    link(rel="stylesheet" href="/stylesheets/review_moving.css")
+    link(rel="stylesheet" href="/stylesheets/arrow.css")
 block content
     |Random
     br
     button(id="max" hidden value= max)
-    button(type="submit" id="next_button" value= index)
-        img(src="/img/next_icon.png")
 
-    br
-    br
-    label= word
-    br
-    button(id="show_translation" value="show") Show Translation
-    p(id="translation" hidden)= translation
-    p(id="example" hidden)= example
+    div(class='slider center')
+        div(class='counter')
+        div(class='lang')
+        div(class='progress')
+        button(id="next_button" value= index class="arrow right")
+            svg(xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="60px" height="80px" viewBox="0 0 50 80" xml:space="preserve")
+                polyline(fill="none" stroke="#FFFFFF" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" points="0.375,0.375 45.63,38.087 0.375,75.8 ")
 
+
+        div(class='slide')
+            div= word
+            button(id="show_translation" value="show") show translation
+            div(class="author" id="translation" hidden)= translation
+            div(class='author' id="example" hidden)= example
     script(src="/js/review_random.js")

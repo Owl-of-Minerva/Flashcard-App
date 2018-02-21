@@ -8,17 +8,6 @@ block scripts
     link(rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css")
 
 block content
-    div(id="dialog-form" hidden title="Create New Flashcard")
-        form(id="flashcard_form" method="post" action="/flash_cards")
-            fieldset
-                label Original Word
-                input(type="text" id="original_word" name="original_word")
-                label Translation
-                input(type="text" id="translation_word" name="translation_word")
-                label Example Use
-                input(type="text" id="example_use" name="example_use" value="N/A")
-                div
-                    input(type="submit")
     div
         label Translate from
         select(id="source")
@@ -32,27 +21,30 @@ block content
             option(value="zh-cn") Chinese
             option(value="en" selected="selected") English
     br
+    | Please Enter the Text You Want to Study
+    br
     textarea(type="text" id="translate_input" placeholder="" name="translate_input") राजा हाथी पर तनकर बैठा था। शेर ने सोचा, मैं भी बैठूँगा। उसने जंगल के हाथी को बुलाया।
+    br
     button(id="complete_input") Done
+    p(id="instruction" hidden) Please click on the word you want to translate
     p(id="user_input")
     ul(id="translation_list" download)
         each translation in translations= translations
             div(class="translation_div")
                 form(action="/add/"+translation.source method="get")
                     li(class="translation_result")
-                        input(type="text" name="source" value=translation.source)
+                        input(type="text" name="source" class="source" value=translation.source)
                         label :
-                        input(type="text" name="result" value=translation.result)
+                        input(type="text" name="result" class="result" value=translation.result)
                     button(type="submit") Add to Lib
                     button(class="remove_card") Remove from List
-
-
     button(id="remove_translation_list") Remove All Words
     button(id="generate_list") Generate Vocabulary List
+    button(id="add_all_list") Add All Words
     p(id="generated_list")
     label File Name
     input(id="download_name" value="annotate")
     br
     a(id="download") Download Annotated File
-    script(src="/js/select_word.js")
+    script(src="/js/index.js")
 

@@ -17,8 +17,6 @@ $(".next_page").click(function(event){
 
 
 
-
-
 $(".previous_page").click(function(event){
         var url = window.location.href;
         var page = url.split("page=")[1];
@@ -50,3 +48,38 @@ $(window).scroll(function () {
     }
 });
 
+
+$(".show_translation").click(function (event) {
+    if($(this).val() == "show"){
+        $(this).text("Hide Translation");
+        $(this).val("hide");
+        $(this).parent().find(".slide_translation").removeAttr("hidden");
+    }
+    else{
+        $(this).parent().find(".slide_translation").attr("hidden", true);
+        $(this).text("Show Translation");
+        $(this).val("show");
+    }
+})
+
+$("#show_all_translations").click(function(event){
+    console.log("clicked to show all");
+    if($(this).val()=="show"){
+       $(this).text("Hide All Translations");
+       $(this).val("hide");
+       $(".slider .slide_translation").each(function(){
+           $(this).removeAttr("hidden")
+       })
+   }
+   else{
+       $(this).text("Show All Translations");
+       $(this).val("show");
+        $(".slider .slide_translation").each(function(){
+            $(this).attr("hidden", true);
+        })
+   }
+})
+
+$("button").mouseup(function(){
+        $(this).blur();
+})
