@@ -2,29 +2,18 @@ extends sidebar.pug
 block scripts
     link(href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet")
     link(href="/stylesheets/review_moving.css" rel="stylesheet")
+    link(href="/stylesheets/buttons.css" rel="stylesheet")
 
 block content
     | Review by Order
     form(action="/review_flashcard" method="post")
         fieldset
-            if order_selected == "chronological"
-                select(id="order" name="order")
-                    option(value="chronological" selected="selected") chronological
-                    option(value="alphabetical") alphabetical
-                    option(value="random") random
-                button(type="submit") confirm
-
-            else if order_selected == "alphabetical"
-                select(id="order" name="order")
-                    option(value="chronological") chronological
-                    option(value="alphabetical" selected="selected") alphabetical
-                    option(value="random") random
-                button(type="submit") confirm
-
-            else
-                select(id="order" name="order")
-                    option(value="chronological") chronological
-                    option(value="alphabetical") alphabetical
-                    option(value="random" selected="selected") random
-                button(type="submit") confirm
-
+            select(id="order" name="order")
+                option(value="chronological") chronological
+                option(value="alphabetical") alphabetical
+                option(value="random" selected="selected") random
+            button(class="pulse" type="submit") confirm
+    br
+    |or Automatic Slide Show
+    form(action="/moving" method="get")
+        button(type="submit" class="pulse") Enter

@@ -191,7 +191,7 @@ app.post('/edit/:word', function(req, res){
 
         }
         else{
-            res.redirect('/flash_cards');
+            res.redirect('/flashcards');
         }
     })
 
@@ -470,7 +470,7 @@ app.post('/add_batch', function(req, res){
     var words = [];
     var translations = [];
     var examples = [];
-    var queries = [];
+    var values = "";
     var count = 0;
     for (name in req.body){
        if (count % 3 == 0){
@@ -491,10 +491,11 @@ app.post('/add_batch', function(req, res){
         var word = words[i];
         var translation = translations[i];
         var example = examples[i];
-        var insert = "INSERT INTO flashcards(word,translation,example) VALUES" + "('" + word + "', '" + translation + "', '" + example + "')";
-        queries.push(insert);
+        values = values + "('" + word + "', '" + translation + "', '" + example + "'),"
     }
-    var query = queries.join(";");
+    var query = "INSERT INTO flashcards(word,translation,example) VALUES" + values;
+    query = query.slice(0, query.length-1);
+    console.log(query);
     var db = new sqlite3.Database('./flashcard_app.db');
     function insertFlashcards(callback){
         db.serialize(function(){

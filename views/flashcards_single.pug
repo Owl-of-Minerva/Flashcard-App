@@ -2,13 +2,17 @@ extends sidebar.pug
 block scripts
     script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js")
     script(src="https://code.jquery.com/ui/1.12.1/jquery-ui.js")
-    link(rel="stylesheet" href="/stylesheets/flashcards_single.css")
+    link(rel="stylesheet" href="/stylesheets/slider_multiple.css")
+    link(rel="stylesheet" href="/stylesheets/load_more.css")
+    link(rel="stylesheet" href="/stylesheets/buttons.css")
 
 block content
     h1= message
     button(id="max_page" hidden value= max)
+
     a(class="number_per_page" href="/flashcards/entries=5") 5
     a(class="number_per_page" href="/flashcards/entries=10") 10
+    br
 
     each val in values= values
         div(class="slider")
@@ -16,9 +20,10 @@ block content
                 div(class="slide_word")= val.word
                 div(class='slide_translation')= val.translation
                 form(method="get" action="/edit/" + val.word)
-                    button(class="edit_flashcard" value= val.word) edit
+                    button(class="fill edit_flashcard" value= val.word) edit
                 form(method="get" action="/delete/" + val.word)
-                    button(class="delete_flashcard" value= val.word type="submit") delete
+                    button(class="fill delete_flashcard" value= val.word type="submit") delete
+
 
     a(href="#" id="load_more") Load More
     p(class="totop")

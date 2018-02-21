@@ -114,22 +114,6 @@ body {
     right: 0;
     margin: auto;
 }
-.love {
-    border-radius: 50%;
-    border: 2px solid white;
-    padding: 4px 4px 2px 4px;
-    right: 18px;
-    top: 16px;
-    position: absolute;
-    content: '\f08a';
-    font-family: FontAwesome;
-    display: block;
-}
-.love:hover:before {
-    color: #2ec7bf;
-    content: '\f004';
-}
-
 form{
     position: relative;
     margin-bottom: 2px;

@@ -16,9 +16,6 @@ $(".next_page").click(function(event){
 )
 
 
-
-
-
 $(".previous_page").click(function(event){
         var url = window.location.href;
         var page = url.split("page=")[1];
@@ -45,19 +42,21 @@ $(function() {
 */
 
 $(function () {
-    $(".slide").slice(0, 4).show();
-    console.log(  $(".slide").slice(0, 4));
-    console.log($(".slide:hidden").slice(0, 4));
-    console.log($(".slide:hidden").length);
+    var first_slice = $(".slider").slice(0, 5);
+    first_slice.attr("style", "display: inline-block");
+    first_slice.show();
     $("#load_more").on('click', function (e) {
         e.preventDefault();
-        $(".slide:hidden").slice(0, 4).slideDown();
-        if ($(".slide:hidden").length == 0) {
-            $("#load").fadeOut('slow');
+        var next_slice = $(".slider:hidden").slice(0, 5);
+        next_slice.attr("style", "display: inline-block");
+        next_slice.slideDown();
+        if ($(".slider:hidden").length == 0) {
+            $("#load").fadeOut("slow");
+            $(this).text("End of All Cards");
         }
         $('html,body').animate({
             scrollTop: $(this).offset().top
-        }, 1500);
+        }, 2000);
     });
 });
 
@@ -75,4 +74,8 @@ $(window).scroll(function () {
     } else {
         $('.totop a').fadeOut();
     }
+});
+
+$("button").mouseup(function(){
+    $(this).blur();
 });

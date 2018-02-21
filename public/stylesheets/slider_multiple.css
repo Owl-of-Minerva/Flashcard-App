@@ -1,46 +1,3 @@
-a {
-    padding: 10px;
-}
-
-.slider {
-    display: none;
-    padding: 10px;
-    margin-bottom: 5px;
-}
-.totop {
-    position: fixed;
-    bottom: 10px;
-    right: 20px;
-}
-.totop a {
-    display: none;
-}
-a, a:visited {
-    color: #33739E;
-    text-decoration: none;
-    margin: 10px 0;
-}
-a:hover {
-    text-decoration: none;
-}
-#loadMore {
-    padding: 10px;
-    text-align: center;
-    background-color: #33739E;
-    color: #fff;
-    border-width: 0 1px 1px 0;
-    border-style: solid;
-    border-color: #fff;
-    box-shadow: 0 1px 1px #ccc;
-    transition: all 600ms ease-in-out;
-    -webkit-transition: all 600ms ease-in-out;
-    -moz-transition: all 600ms ease-in-out;
-    -o-transition: all 600ms ease-in-out;
-}
-#loadMore:hover {
-    background-color: #fff;
-    color: #33739E;
-}
 @import url(https://fonts.googleapis.com/css?family=Nunito:400,700);
 body {
     background-color: #4c4f52;
@@ -56,6 +13,7 @@ body {
     position: relative;
     box-shadow: 0px 0px 6px 3px #303234, 0 30px 20px -15px #303234;
     overflow: hidden;
+    display: inline-block;
 }
 
 
@@ -110,6 +68,7 @@ body {
     right: 0;
     margin: auto;
 }
+
 .love {
     border-radius: 50%;
     border: 2px solid white;
@@ -121,6 +80,7 @@ body {
     font-family: FontAwesome;
     display: block;
 }
+
 .love:hover:before {
     color: #2ec7bf;
     content: '\f004';
