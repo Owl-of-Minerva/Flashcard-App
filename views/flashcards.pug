@@ -5,15 +5,18 @@ block scripts
     link(rel="stylesheet" href="/stylesheets/slider_multiple.css")
     link(rel="stylesheet" href="/stylesheets/flashcards.css")
     link(rel="stylesheet" href="/stylesheets/buttons.css")
+    link(rel="stylesheet" href="/stylesheets/pagination.css")
 
 block content
     button(id="max_page" hidden value= max)
+    button(id="current_page" hidden value= current)
     a(class="number_per_page" href="/flashcards/entries=5/") 5
     a(class="number_per_page" href="/flashcards/entries=10/") 10
 
     br
-    a(class="next_page" href="#") Next
-    a(class="previous_page" href="#") Previous
+    div(id="pagination")
+    //a(class="next_page" href="#") Next
+    //a(class="previous_page" href="#") Previous
     button(id="show_all_translations" class="pulse" value="show") Show All Translations
     br
     each val in values= values
@@ -27,3 +30,4 @@ block content
                form(method="get" action="/delete/" + val.word)
                    button(class="fill delete_flashcard" value= val.word type="submit") delete
     script(src="/js/flashcards.js")
+    script(src="/js/pagination.js")

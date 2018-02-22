@@ -3,6 +3,7 @@ block scripts
     script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js")
     script(src="https://code.jquery.com/ui/1.12.1/jquery-ui.js")
     link(rel="stylesheet" href="/stylesheets/slider_multiple.css")
+    link(rel="stylesheet" hred="/stylesheets/flashcards.css")
     link(rel="stylesheet" href="/stylesheets/load_more.css")
     link(rel="stylesheet" href="/stylesheets/buttons.css")
 
@@ -19,14 +20,15 @@ block content
             div(class='slide')
                 div(class="slide_word")= val.word
                 div(class='slide_translation')= val.translation
-                form(method="get" action="/edit/" + val.word)
+                form(style = "display: inline-block" method="get" action="/edit/" + val.word)
                     button(class="fill edit_flashcard" value= val.word) edit
-                form(method="get" action="/delete/" + val.word)
+                form(style = "display: inline-block" method="get" action="/delete/" + val.word)
                     button(class="fill delete_flashcard" value= val.word type="submit") delete
 
-
+    br
     a(href="#" id="load_more") Load More
+    a(href="#" id="load_less")
     p(class="totop")
         a(href="#top") Back to Top
 
-    script(src="/js/flashcards_single.js")
+    script(src="/js/load_more.js")

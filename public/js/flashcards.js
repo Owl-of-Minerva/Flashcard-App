@@ -1,6 +1,6 @@
 $(".next_page").click(function(event){
     var max = parseInt($("#max_page").val());
-    console.log(max);
+    console.log("max page: " + max);
     var url = window.location.href;
     var page = url.split("page=")[1];
     console.log(page);
@@ -70,6 +70,11 @@ $("#show_all_translations").click(function(event){
        $(".slider .slide_translation").each(function(){
            $(this).removeAttr("hidden")
        })
+        $(".slider .show_translation").each(function(){
+            $(this).text("Hide Translation");
+            $(this).val("hide")
+        })
+
    }
    else{
        $(this).text("Show All Translations");
@@ -77,7 +82,12 @@ $("#show_all_translations").click(function(event){
         $(".slider .slide_translation").each(function(){
             $(this).attr("hidden", true);
         })
-   }
+        $(".slider .show_translation").each(function(){
+            $(this).text("Show Translation");
+            $(this).val("show")
+        })
+
+    }
 })
 
 $("button").mouseup(function(){

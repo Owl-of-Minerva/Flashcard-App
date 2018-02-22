@@ -202,7 +202,7 @@ app.get('/review_flashcard/', function(req, res){
 })
 
 app.get('/review_flashcard/alphabetical', function(req, res){
-    res.redirect("/review_flashcard/alphabetical/0");
+    res.redirect("/review_flashcard/alphabetical/1");
 })
 
 app.get('/review_flashcard/alphabetical/:index', function(req, res){
@@ -229,25 +229,21 @@ app.get('/review_flashcard/alphabetical/:index', function(req, res){
 
         }
         else{
-            if(index > rows.length-1){
-                res.redirect('/review_flashcard/alphabetical/'+ (rows.length-1));
+            if(index > rows.length){
+                res.redirect('/review_flashcard/alphabetical/'+ rows.length);
             }
             else if (index < 0){
-                res.redirect("/review_flashcard/alphabetical/0");
+                res.redirect("/review_flashcard/alphabetical/1");
             }
             else{
-                var row = rows[index];
-                var word = row.word;
-                var translation = row.translation;
-                var example = row.example;
-                res.render('review_flashcard_alphabetical', {index: index, word: word, translation: translation, example: example});
+                res.render('review_flashcard_order', {index: index, max: rows.length, flashcards: rows});
             }
         }
     })
 })
 
 app.get('/review_flashcard/chronological', function(req, res){
-    res.redirect("/review_flashcard/chronological/0");
+    res.redirect("/review_flashcard/chronological/1");
 })
 
 app.get('/review_flashcard/chronological/:index', function(req, res){
@@ -274,18 +270,14 @@ app.get('/review_flashcard/chronological/:index', function(req, res){
 
         }
         else{
-            if(index > rows.length-1){
-                res.redirect('/review_flashcard/chronological/'+ (rows.length-1));
+            if(index > rows.length){
+                res.redirect('/review_flashcard/chronological/'+ rows.length);
             }
-            else if (index < 0){
-                res.redirect("/review_flashcard/chronological/0");
+            else if (index < 1){
+                res.redirect("/review_flashcard/chronological/1");
             }
             else{
-                var row = rows[index];
-                var word = row.word;
-                var translation = row.translation;
-                var example = row.example;
-                res.render('review_flashcard_chronological', {index: index, word: word, translation: translation, example: example});
+                res.render('review_flashcard_order', {index: index, max: rows.length, flashcards: rows});
             }
         }
     })
@@ -416,7 +408,7 @@ app.post('/flashcards', function (req, res){
 
 app.get('/flashcards/entries=:number', function(req,res){
     var number = req.params.number;
-    res.redirect('/flashcards/entries=' + number + "/page=0");
+    res.redirect('/flashcards/entries=' + number + "/page=1");
 })
 
 app.get('/flashcards/entries=:number/page=:page', function(req, res){
@@ -444,11 +436,11 @@ app.get('/flashcards/entries=:number/page=:page', function(req, res){
 
         }
         else{
-            var max = Math.ceil(rows.length / number) -1;
-            var begin = page * number;
-            var end = (page+1) * number;
+            var max = Math.ceil(rows.length / number);
+            var begin = (page-1) * number;
+            var end = page * number;
             var flashcards = rows.slice(begin, end);
-            res.render('flashcards', { max: max, title: 'Flash Cards', message: 'List of Flashcards', values: flashcards});
+            res.render('flashcards', {current: page, max: max, title: 'Flash Cards', message: 'List of Flashcards', values: flashcards});
         }
     })
 

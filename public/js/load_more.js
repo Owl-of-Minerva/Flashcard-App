@@ -45,21 +45,48 @@ $(function () {
     var first_slice = $(".slider").slice(0, 5);
     first_slice.attr("style", "display: inline-block");
     first_slice.show();
-    $("#load_more").on('click', function (e) {
-        e.preventDefault();
-        var next_slice = $(".slider:hidden").slice(0, 5);
-        next_slice.attr("style", "display: inline-block");
-        next_slice.slideDown();
-        if ($(".slider:hidden").length == 0) {
-            $("#load").fadeOut("slow");
-            $(this).text("End of All Cards");
-        }
-        $('html,body').animate({
-            scrollTop: $(this).offset().top
-        }, 2000);
-    });
 });
 
+
+$("#load_more").on('click', function (e) {
+    e.preventDefault();
+    var next_slice = $(".slider:hidden").slice(0, 5);
+    next_slice.attr("style", "display: inline-block");
+    next_slice.slideDown();
+    if ($(".slider[style = 'display: inline-block']").length > 5) {
+        $("#load_less").text("Collapse");
+    }
+    if ($(".slider:hidden").length == 0) {
+        $("#load_more").text("");
+    }
+    $('html,body').animate({
+        scrollTop: $(this).offset().top
+    }, 1200);
+});
+
+$("#load_less").on('click', function (e) {
+    e.preventDefault();
+    var sliders = $(".slider[style = 'display: inline-block']");
+    var length = sliders.length;
+    var last_row_count =  length % 5;
+    if(last_row_count == 0){
+        last_row_count = 5;
+    }
+    var next_slice = sliders.slice(length-last_row_count, length);
+    if (length < 6) {
+        $("#load_less").text("");
+    }
+    next_slice.slideUp("slow", function(){
+        if ($(".slider:hidden").length > 0) {
+            $("#load_more").text("Load More");
+        }
+    });
+
+    $('html,body').animate({
+        scrollTop: $(this).offset().top
+    }, 800);
+
+});
 
 $('a[href=#top]').click(function () {
     $('body,html').animate({

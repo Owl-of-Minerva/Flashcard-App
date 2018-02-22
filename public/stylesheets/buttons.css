@@ -79,8 +79,8 @@
 }
 
 .pulse {
-    --color: #ef6eae;
-    --hover: #ef8f6e;
+    --color: #ffa260;
+    --hover: #e5ff60;
 }
 
 .close {
@@ -90,7 +90,7 @@
 
 .raise {
     --color: #ffa260;
-    --hover: #e5ff60;
+    --hover: #ffa260;
 }
 
 .up {
@@ -113,7 +113,6 @@ button {
     -webkit-transition: 0.25s;
     transition: 0.25s;
     background: none;
-    padding: 0.5em 0.5em;
     outline: none;
     border: none;
     display: block;
@@ -122,7 +121,7 @@ button {
 button:hover, button:focus {
     border-color: var(--hover);
     color: #fff;
-    outline: none;
+    /*outline: none;*/
     /*border: none;*/
 }
 

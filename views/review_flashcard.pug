@@ -9,9 +9,9 @@ block content
     form(action="/review_flashcard" method="post")
         fieldset
             select(id="order" name="order")
-                option(value="chronological") chronological
+                option(value="chronological" selected="selected") chronological
                 option(value="alphabetical") alphabetical
-                option(value="random" selected="selected") random
+                option(value="random") random
             button(class="pulse" type="submit") confirm
     br
     |or Automatic Slide Show
