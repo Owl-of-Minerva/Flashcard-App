@@ -4,8 +4,33 @@ block scripts
     script(src="https://code.jquery.com/ui/1.12.1/jquery-ui.js")
     link(href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet")
     link(href="/stylesheets/slider_single.css" rel="stylesheet")
+    link(rel="stylesheet" href="/stylesheets/breadcrumb.css")
 
 block content
+    button(id="index" value= index hidden)
+    button(id="max" value= max hidden)
+    button(id="way" value= way hidden)
+    button(id="order" value= order hidden)
+    div(id="select_options")
+        div(class="breadcrumbs_large" id="review_order")
+            ul
+                li
+                    label Time
+                li
+                    label Random
+                li
+                    label Alphabet
+                li
+                    label Order
+
+        div(class="breadcrumbs_large" id="review_way")
+            ul
+                li
+                    label Manual
+                li
+                    label Automatic
+                li
+                    label Way
 
     div(class='slider center')
         div(class='counter')
@@ -19,3 +44,4 @@ block content
 
 
     script(src="/js/review_moving.js")
+    script(src="/js/select_options.js")

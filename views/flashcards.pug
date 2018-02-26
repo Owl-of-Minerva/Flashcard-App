@@ -5,13 +5,40 @@ block scripts
     link(rel="stylesheet" href="/stylesheets/slider_multiple.css")
     link(rel="stylesheet" href="/stylesheets/flashcards.css")
     link(rel="stylesheet" href="/stylesheets/buttons.css")
+    link(rel="stylesheet" href="/stylesheets/breadcrumb.css")
     link(rel="stylesheet" href="/stylesheets/pagination.css")
-
 block content
     button(id="max_page" hidden value= max)
-    button(id="current_page" hidden value= current)
-    a(class="number_per_page" href="/flashcards/entries=5/") 5
-    a(class="number_per_page" href="/flashcards/entries=10/") 10
+    button(id="current_page" hidden value= page)
+    button(id="order" hidden value= order)
+    button(id="entry" hidden value= entries)
+    div(id="select_options")
+        div(class="breadcrumbs" id="entries_per_page")
+            ul
+                li
+                    label All
+                li
+                    label 1
+                li
+                    label 5
+                li
+                    label 10
+                li
+                    label 20
+                li
+                    label 40
+                li
+                    label Cards
+        div(class="breadcrumbs_large" id="sort_order")
+            ul
+                li
+                    label Time
+                li
+                    label Random
+                li
+                    label Alphabet
+                li
+                    label Order
 
     br
     div(id="pagination")
@@ -19,15 +46,18 @@ block content
     //a(class="previous_page" href="#") Previous
     button(id="show_all_translations" class="pulse" value="show") Show All Translations
     br
-    each val in values= values
-       div(class="slider")
-           div(class='slide')
-               div(class="slide_word")= val.word
-               button(class="show_translation raise" value="show") Show Translation
-               div(class='slide_translation' hidden)= val.translation
-               form(method="get" action="/edit/" + val.word)
-                   button(class="fill edit_flashcard" value= val.word) edit
-               form(method="get" action="/delete/" + val.word)
-                   button(class="fill delete_flashcard" value= val.word type="submit") delete
+    div(class="flashcards")
+        each val in values= values
+            div(class="slider")
+                div(class='slide')
+                    div(class="slide_word")= val.word
+                    button(class="show_translation raise" value="show") Show Translation
+                    div(class='slide_translation' hidden)= val.translation
+                    div(class="multiple_forms")
+                        form(method="get" action="/edit/" + val.word)
+                            button(class="fill edit_flashcard" value= val.word) edit
+                        form(method="get" action="/delete/" + val.word)
+                            button(class="fill delete_flashcard" value= val.word type="submit") delete
     script(src="/js/flashcards.js")
     script(src="/js/pagination.js")
+    script(src="/js/select_options.js")

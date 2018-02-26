@@ -3,17 +3,45 @@ block scripts
     link(href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet")
     link(href="/stylesheets/review_moving.css" rel="stylesheet")
     link(href="/stylesheets/buttons.css" rel="stylesheet")
-
+    link(rel="stylesheet" href="/stylesheets/breadcrumb.css")
+    link(rel="stylesheet" href="/stylesheets/slider_review.css")
+    link(rel="stylesheet" href="/stylesheets/carousel.css")
+    link(rel="stylesheet" href="/stylesheets/buttons.css")
 block content
-    | Review by Order
-    form(action="/review_flashcard" method="post")
-        fieldset
-            select(id="order" name="order")
-                option(value="chronological" selected="selected") chronological
-                option(value="alphabetical") alphabetical
-                option(value="random") random
-            button(class="pulse" type="submit") confirm
-    br
-    |or Automatic Slide Show
-    form(action="/moving" method="get")
-        button(type="submit" class="pulse") Enter
+    button(id="index" value= index hidden)
+    button(id="max" value= max hidden)
+    button(id="way" value= way hidden)
+    button(id="order" value= order hidden)
+    div(id="select_options")
+        div(class="breadcrumbs_large" id="review_order")
+            ul
+                li
+                    label Time
+                li
+                    label Random
+                li
+                    label Alphabet
+                li
+                    label Order
+
+        div(class="breadcrumbs_large" id="review_way")
+            ul
+                li
+                    label Manual
+                li
+                    label Automatic
+                li
+                    label Way
+
+    div(id="carousel")
+        each flashcard in flashcards
+            div(class="slider hideLeft")
+                div(class='slide')
+                    div(class="slide_word")= flashcard.word
+                    div(class='slide_translation')= flashcard.translation
+    div(class="buttons")
+        button(id="prev" class="fill") Prev
+        button(id="next" class="fill") Next
+
+    script(src="/js/carousel_test.js")
+    script(src="/js/select_options.js")

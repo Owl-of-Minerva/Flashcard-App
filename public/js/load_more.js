@@ -1,17 +1,17 @@
 $(".next_page").click(function(event){
-    var max = parseInt($("#max_page").val());
-    console.log(max);
-    var url = window.location.href;
-    var page = url.split("page=")[1];
-    console.log(page);
-    var next_page_number = parseInt(page) + 1;
-    if (next_page_number > max){
-        next_page_number = max;
-    }
-    console.log("next page: "+ next_page_number);
-    var new_url = url.split("page=")[0] + "page=" + next_page_number;
-    console.log("new url: " + new_url);
-    window.location = new_url;
+        var max = parseInt($("#max_page").val());
+        console.log(max);
+        var url = window.location.href;
+        var page = url.split("page=")[1];
+        console.log(page);
+        var next_page_number = parseInt(page) + 1;
+        if (next_page_number > max){
+            next_page_number = max;
+        }
+        console.log("next page: "+ next_page_number);
+        var new_url = url.split("page=")[0] + "page=" + next_page_number;
+        console.log("new url: " + new_url);
+        window.location = new_url;
     }
 )
 
@@ -73,7 +73,8 @@ $("#load_less").on('click', function (e) {
         last_row_count = 5;
     }
     var next_slice = sliders.slice(length-last_row_count, length);
-    if (length < 6) {
+    console.log(length)
+    if (length < 11) {
         $("#load_less").text("");
     }
     next_slice.slideUp("slow", function(){
@@ -106,3 +107,17 @@ $(window).scroll(function () {
 $("button").mouseup(function(){
     $(this).blur();
 });
+
+
+$(".show_translation").click(function (event) {
+    if($(this).val() == "show"){
+        $(this).text("Hide Translation");
+        $(this).val("hide");
+        $(this).parent().find(".slide_translation").removeAttr("hidden");
+    }
+    else{
+        $(this).parent().find(".slide_translation").attr("hidden", true);
+        $(this).text("Show Translation");
+        $(this).val("show");
+    }
+})

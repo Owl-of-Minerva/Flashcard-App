@@ -1,11 +1,6 @@
-a {
-    padding: 10px;
-}
 
 .slider {
     display: none;
-    padding: 10px;
-    margin-bottom: 5px;
 }
 .totop {
     position: fixed;
@@ -23,6 +18,7 @@ a, a:visited {
 a:hover {
     text-decoration: none;
 }
+
 #loadMore {
     padding: 10px;
     text-align: center;
@@ -40,4 +36,8 @@ a:hover {
 #loadMore:hover {
     background-color: #fff;
     color: #33739E;
+}
+
+#loads{
+    display: flex;
 }

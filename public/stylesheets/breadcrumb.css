@@ -1,0 +1,108 @@
+.breadcrumbs {
+    margin: 0px auto;
+    text-align:center;
+    padding: 0px;
+    font-family: 'Open Sans';
+    position: relative;
+    width: auto;
+    float: left;
+    margin: 5px;
+    margin-left: -4%;
+
+}
+.breadcrumbs > ul > li {
+    list-style: none;
+    position: relative;
+    float: left;
+    transform: skewX(-15deg);
+    background-color: #fff;
+    box-shadow: -2px 0px 20px -6px rgba(0,0,0,0.5);
+    z-index: 1;
+    width: 45px;
+    margin-left: -20px;
+    transition: all 0.5s;
+}
+.breadcrumbs > ul > li  > label {
+    display: block;
+    margin: 0px;
+    padding: 2px;
+    font-size: 16px;
+    transform: skewX(15deg);
+    text-decoration:none;
+    color: #444;
+    font-weight: 300;
+}
+.breadcrumbs > ul > li:first-child {
+    margin-left: 0px;
+}
+.breadcrumbs > ul > li:hover {
+    background-color: #CFD8DC;
+}
+.breadcrumbs > ul > li:last-child {
+    background-color: #ffa260;
+}
+.breadcrumbs > ul > li:last-child > label {
+    color: #fff;;
+}
+.breadcrumbs > ul:hover > li {
+    margin-left: 0px;
+}
+
+
+
+
+
+.breadcrumbs_large {
+    margin: 0px auto;
+    text-align:center;
+    padding: 0px;
+    font-family: 'Open Sans';
+    position: relative;
+    width: auto;
+    float: left;
+    margin: 5px;
+    margin-left: -4%;
+
+}
+.breadcrumbs_large> ul > li {
+    list-style: none;
+    position: relative;
+    float: left;
+    transform: skewX(-15deg);
+    background-color: #fff;
+    box-shadow: -2px 0px 20px -6px rgba(0,0,0,0.5);
+    z-index: 1;
+    width: 60px;
+    margin-left: -40px;
+    transition: all 0.5s;
+}
+.breadcrumbs_large> ul > li  > label {
+    display: block;
+    margin: 0px;
+    padding: 2px;
+    font-size: 16px;
+    transform: skewX(15deg);
+    text-decoration:none;
+    color: #444;
+    font-weight: 300;
+}
+.breadcrumbs_large> ul > li:first-child {
+    margin-left: 0px;
+}
+.breadcrumbs_large> ul > li:hover {
+    background-color: #CFD8DC;
+}
+.breadcrumbs_large> ul > li:last-child {
+    background-color: #ffa260;
+}
+.breadcrumbs_large> ul > li:last-child > label {
+    color: #fff;;
+}
+.breadcrumbs_large> ul:hover > li {
+    margin-left: 0px;
+}
+
+#select_options {
+    display: flex;
+    justify-content: flex-start;
+}

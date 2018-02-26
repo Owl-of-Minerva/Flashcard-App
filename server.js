@@ -198,9 +198,53 @@ app.post('/edit/:word', function(req, res){
 })
 
 app.get('/review_flashcard/', function(req, res){
-    res.render("review_flashcard");
+    //res.render("review_flashcard");
+    res.redirect('/review_flashcard/order=time/way=manual/index=1')
 })
+app.get('/review_flashcard/order=:order/way=:way/index=:index', function(req,res){
+    var db = new sqlite3.Database('./flashcard_app.db');
+    var query = "SELECT * FROM flashcards";
+    var index = parseInt(req.params.index);
+    var order = req.params.order;
+    var way = req.params.way;
 
+    function review_flashcard(callback){
+        db.serialize(function(){
+            db.all(query, [], function(err, rows){
+                if(err){
+                    callback(err, rows);
+                }
+                else{
+                    callback(null, rows);
+                }
+            })
+        })
+    }
+
+    review_flashcard(function(err,rows){
+        db.close();
+        if(err){
+
+        }
+        else{
+           if(way== "manual"){
+               if(index > rows.length){
+                   res.redirect('/review_flashcard/order=' + order + '/way=' + way + '/index='+ rows.length);
+               }
+               else if (index < 1){
+                   res.redirect('/review_flashcard/order=' + order + '/way=' + way + '/index=1');
+               }
+               else{
+                   res.render('review_flashcard', {way: way, order: order, index: index, max: rows.length, flashcards: rows});
+               }
+           }
+           else{
+               res.render('review_flashcard_moving', {way: way, order: order, index: index, max: rows.length, flashcards: rows});
+           }
+        }
+    })
+})
+/*
 app.get('/review_flashcard/alphabetical', function(req, res){
     res.redirect("/review_flashcard/alphabetical/1");
 })
@@ -320,38 +364,14 @@ app.get('/review_flashcard/random/:index', function(req, res){
         }
     })
 })
-
+*/
 app.post('/review_flashcard', function(req, res){
     var order = req.body.order;
     res.redirect("/review_flashcard/"+order);
 })
 
 app.get('/flashcards', function(req, res){
-    var db = new sqlite3.Database('./flashcard_app.db');
-    var query = "SELECT * FROM  flashcards";
-    function fetchFlashcards(callback){
-        db.serialize(function(){
-            db.all(query, function (err, rows){
-                if(err){
-                    callback(err, rows);
-                }
-                else{
-                    callback(null, rows);
-                }
-            })
-        })
-    }
-
-    fetchFlashcards(function(err, rows){
-        db.close();
-        if(err){
-
-        }
-        else{
-            res.render('flashcards_single', { message: 'List of Flashcards', values: rows});
-        }
-    })
-
+    res.redirect('/flashcards/order=time');
 })
 
 app.post('/flashcards', function (req, res){
@@ -406,17 +426,38 @@ app.post('/flashcards', function (req, res){
     })
 })
 
-app.get('/flashcards/entries=:number', function(req,res){
-    var number = req.params.number;
-    res.redirect('/flashcards/entries=' + number + "/page=1");
-})
-
-app.get('/flashcards/entries=:number/page=:page', function(req, res){
-    var number = parseInt(req.params.number);
-    var page = parseInt(req.params.page);
+app.get('/flashcards/order=:order', function(req, res){
     var db = new sqlite3.Database('./flashcard_app.db');
-    var query = "SELECT * FROM  flashcards";
+    var query;
+    var order = req.params.order;
+    if (order=="time"){
+        query = "SELECT * FROM  flashcards";
+    }
+    else if (order == "alphabet"){
+        query = "SELECT * FROM flashcards order by word";
+    }
+    else {
+        query = "SELECT * FROM  flashcards";
+    }
+    //https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+    function shuffle(array) {
+        var currentIndex = array.length, temporaryValue, randomIndex;
 
+        // While there remain elements to shuffle...
+        while (0 !== currentIndex) {
+
+            // Pick a remaining element...
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex -= 1;
+
+            // And swap it with the current element.
+            temporaryValue = array[currentIndex];
+            array[currentIndex] = array[randomIndex];
+            array[randomIndex] = temporaryValue;
+        }
+
+        return array;
+    }
     function fetchFlashcards(callback){
         db.serialize(function(){
             db.all(query, function (err, rows){
@@ -436,11 +477,101 @@ app.get('/flashcards/entries=:number/page=:page', function(req, res){
 
         }
         else{
-            var max = Math.ceil(rows.length / number);
-            var begin = (page-1) * number;
-            var end = page * number;
+            if(order == "random"){
+                res.render('flashcards_single', { length: rows.length, values: shuffle(rows)});
+            }
+            else {
+                res.render('flashcards_single', { length: rows.length, values: rows});
+            }
+        }
+    })
+
+})
+
+app.get('/flashcards/order=:order/entries=:number', function(req,res){
+    var number = req.params.number;
+    var order = req.params.order;
+    res.redirect('/flashcards/order=' + order + 'entries=' + number + "/page=1");
+})
+
+app.get('/flashcards/order=:order/entries=:entries/page=:page', function(req, res){
+    var entries = parseInt(req.params.entries);
+    var order = req.params.order;
+    var page = parseInt(req.params.page);
+    var db = new sqlite3.Database('./flashcard_app.db');
+    var query;
+
+    if (order == "time" || order == "random"){
+        query = "SELECT * FROM  flashcards";
+    }
+    else if(order == "alphabet"){
+        query = "SELECT * FROM  flashcards order by word";
+    }
+
+    function fetchFlashcards(callback){
+        db.serialize(function(){
+            db.all(query, function (err, rows){
+                if(err){
+                    callback(err, rows);
+                }
+                else{
+                    callback(null, rows);
+                }
+            })
+        })
+    }
+    //https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+    function shuffle(array) {
+        var currentIndex = array.length, temporaryValue, randomIndex;
+
+        // While there remain elements to shuffle...
+        while (0 !== currentIndex) {
+
+            // Pick a remaining element...
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex -= 1;
+
+            // And swap it with the current element.
+            temporaryValue = array[currentIndex];
+            array[currentIndex] = array[randomIndex];
+            array[randomIndex] = temporaryValue;
+        }
+
+        return array;
+    }
+
+    fetchFlashcards(function(err, rows){
+        db.close();
+        if(err){
+
+        }
+        else{
+            var max = Math.ceil(rows.length / entries);
+            var begin = (page-1) * entries;
+            var end = page * entries;
             var flashcards = rows.slice(begin, end);
-            res.render('flashcards', {current: page, max: max, title: 'Flash Cards', message: 'List of Flashcards', values: flashcards});
+            if(order == "time" || order == "alphabet") {
+                res.render('flashcards', {
+                    max: max,
+                    entries: entries,
+                    page: page,
+                    order: order,
+                    title: 'Flash Cards',
+                    message: 'List of Flashcards',
+                    values: flashcards
+                });
+            }
+            else if(order == "random") {
+                res.render('flashcards', {
+                    max: max,
+                    entries: entries,
+                    page: page,
+                    order: order,
+                    title: 'Flash Cards',
+                    message: 'List of Flashcards',
+                    values: shuffle(flashcards)
+                });
+            }
         }
     })
 
@@ -538,6 +669,10 @@ app.get('/moving', function(req, res){
             res.render('review_flashcard_moving', { flashcards: rows});
     }
     })
+})
+
+app.get("/demo", function(req, res){
+    res.render('demo')
 })
 app.listen(3000, function () {
     console.log('Express server is up on port 3000');

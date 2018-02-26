@@ -8,26 +8,13 @@ block scripts
     //link(rel="stylesheet" href="/stylesheets/review.css")
     link(rel="stylesheet" href="/stylesheets/slider_review.css")
     link(rel="stylesheet" href="/stylesheets/carousel.css")
+    //link(rel="stylesheet" href="/stylesheets/breadcrumb.css")
 block content
-    //|Chronological
-    //br
-    //button(type="submit" id="next_button" value=index)
-        //img(src="/img/next_icon.png")
-
-    //button(id="previous_button" value=index)
-        //img(src="/img/previous_icon.png")
-
-    //br
-    //br
-    //label= word
-    //br
-    //button(id="show_translation" value="show") Show Translation
-    //p(id="translation" hidden)= translation
-    //p(id="example" hidden)= example
     button(id="index" value= index hidden)
     button(id="max" value= max hidden)
     br
     br
+
     div(id="carousel")
         each flashcard in flashcards
             div(class="slider hideLeft")

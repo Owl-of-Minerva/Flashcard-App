@@ -7,7 +7,9 @@
 body {
   overflow-x: hidden;
   padding-top: 44px;
+  background-color: #4c4f52;
 }
+
 
 nav {
   background-color: #424242;

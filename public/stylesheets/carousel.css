@@ -1,11 +1,12 @@
 
 #carousel {
     position: relative;
-    height: 400px;
+    height: 500px;
+    width:100%;
     top: 50%;
     transform: translateY(-50%);
     overflow: hidden;
-    margin-top: 18%;
+    margin-top: 30%;
 }
 #carousel div {
     position: absolute;
@@ -17,7 +18,6 @@
     transition: width 1s;
 }
 #carousel div.hideLeft {
-    display: none;
     left: 0%;
     opacity: 0;
     transform: translateY(50%) translateX(-50%);
@@ -72,6 +72,7 @@
 #carousel div.nextRightSecond img {
     width: 200px;
 }
+
 .buttons {
     position: fixed;
     left: 50%;
